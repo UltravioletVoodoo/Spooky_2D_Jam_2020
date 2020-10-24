@@ -13,7 +13,7 @@ cd Spooky_2D_Jam_2020
 ```
 Install the dependencies
 ```
-npm run install
+npm install
 ```
 Finally, start up the game
 ```
