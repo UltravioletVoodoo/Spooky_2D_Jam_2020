@@ -1,34 +1,64 @@
 import Config from './Config';
 
+const StateKey = 'state';
+
 export interface State {
     level: { x: number, y: number };
+    player: { x: number, y: number };
+    up: boolean,
+    down: boolean,
+    left: boolean,
+    right: boolean,
+    enter: boolean,
+    back: boolean,
+    direction: Phaser.Math.Vector2,
+    inTransition: boolean,
+    dialogue?: {
+        scriptKey: string,
+        index: number,
+    },
 }
 
-const DefaultState: State = {
-    level: { x: 0, y: 0 },
+function createDfaultState(): State {
+    return {
+        level: { x: 0, y: 0 },
+        player: { x: Config.scale.width / 2, y: Config.scale.height / 2 },
+        up: false,
+        down: false,
+        left: false,
+        right: false,
+        enter: false,
+        back: false,
+        direction: new Phaser.Math.Vector2(0, 0),
+        inTransition: false,
+    };
 }
 
-const StateKey = 'state';
-let state: State? = null;
+class StateManager {
 
-export function get(): State {
-    if (!state) {
-        load();
+    private state!: State;
+
+    constructor() {
+        this.load();
     }
-    return state as State;
+
+    get() {
+        return this.state;
+    }
+
+    load() {
+        const jsonState = localStorage.getItem(StateKey);
+        if (jsonState == null) {
+            this.state = createDfaultState();
+        } else {
+            this.state = JSON.parse(jsonState);
+        }
+    }
+    
+    save() {
+        localStorage.setItem(StateKey, JSON.stringify(this.state));
+    }
+
 }
 
-export function load() {
-    state = JSON.parse(localStorage.getItem(StateKey) || JSON.stringify(DefaultState)) as State;
-}
-
-export function save() {
-    localStorage.setItem(StateKey, JSON.stringify(state));
-}
-
-export default {
-    get,
-    load,
-    save,
-    DefaultState,
-};
+export default new StateManager();
