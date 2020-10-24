@@ -2,12 +2,12 @@ import Phaser from 'phaser'
 
 export default class HelloWorldScene extends Phaser.Scene
 {
-	constructor()
-	{
-		super('HelloWorldScene')
-	}
+    constructor()
+    {
+        super('HelloWorldScene')
+    }
 
-	preload()
+    preload()
     {
         this.load.setBaseURL('http://labs.phaser.io')
 
