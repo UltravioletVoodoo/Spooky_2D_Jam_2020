@@ -9,6 +9,7 @@ interface Controls {
 export default class DebugScene extends Phaser.Scene {
 
     player!: Phaser.Physics.Arcade.Sprite;
+    debugText!: Phaser.GameObjects.Text;
     controls!: Controls;
 
     constructor() {
@@ -24,12 +25,17 @@ export default class DebugScene extends Phaser.Scene {
             0, 0, 
             Config.scale.width, Config.scale.height, 
             Config.scale.tile, Config.scale.tile,
-            0x0070a0, 1, 0xa0a0a0,
+            new Phaser.Display.Color().random().color,
         );
         debugGrid.setOrigin(0, 0);
+        
 
         this.createControls();
         this.createPlayer();
+
+        if (Config.debug) {
+            this.debugText = this.add.text(10, 10, "");
+        }
     }
 
     createControls() {
@@ -62,8 +68,9 @@ export default class DebugScene extends Phaser.Scene {
         );
         player.setDisplaySize(Config.scale.tile, Config.scale.tile);
         player.setDrag(Config.player.drag);
-        player.setCollideWorldBounds(true);
         player.setDamping(true);
+        // Debug
+        player.debugShowVelocity = true;
 
         // Load player animations
         const  createPlayerAnimation = (key) => {
@@ -90,7 +97,15 @@ export default class DebugScene extends Phaser.Scene {
     }
 
     updatePlayer() {
-        const { player, controls } = this;
+        const { debugText: debug, player, controls } = this;
+
+        if (Config.debug) {
+            debug.setText(
+                `Player x: ${player.x.toFixed(2)} y: ${player.y.toFixed(2)}\n` +
+                `FPS: ${this.game.loop.actualFps.toFixed(2)}\n`
+            );
+        }
+
         const directionVector = new Phaser.Math.Vector2(
             // Get the x component as -1, 0, 1
             ((controls.d.isDown || controls.right.isDown) ? 1 : 0) -
@@ -124,6 +139,7 @@ export default class DebugScene extends Phaser.Scene {
         } else {
             player.play(Config.player.animations.idle, true);
         }
+
     }
 
 }

@@ -13,6 +13,9 @@ const Config = {
 
     physics: {
         default: 'arcade',
+        arcade: {
+            debug: true,
+        },
     },
 
     animations: {
@@ -30,7 +33,9 @@ const Config = {
             runLeft: 'player-run-left000',
             runRight: 'player-run-right000',
         },
-    }
+    },
+
+    debug: true,
 };
 
 
