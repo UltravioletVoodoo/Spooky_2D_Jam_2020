@@ -1,8 +1,8 @@
-import Phaser from 'phaser';
+import Phaser from 'phaser'
 
-import HelloWorldScene from './scenes/HelloWorldScene';
+import HelloWorldScene from './scenes/HelloWorldScene'
 
-export const config: Phaser.Types.Core.GameConfig = {
+export const config = {
     type: Phaser.AUTO,
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH,
@@ -14,14 +14,14 @@ export const config: Phaser.Types.Core.GameConfig = {
         arcade: {
             gravity: { y: 200 },
             debug: false,
-        },
+        }
     },
-};
+}
 
-let game = new Phaser.Game(config);
+let game = new Phaser.Game(config)
 
 // Load Scenes
-game.scene.add('HelloWorldScene', HelloWorldScene);
+game.scene.add('HelloWorldScene', HelloWorldScene)
 
 // Start the first scene
-game.scene.start('HelloWorldScene');
+game.scene.start('HelloWorldScene')
