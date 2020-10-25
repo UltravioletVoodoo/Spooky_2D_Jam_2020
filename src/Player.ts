@@ -107,9 +107,9 @@ export default class Player {
                     scene.scene.start(QuoteScene.name, {
                         delay: 8000,
                         quote: [
-                            `She turns around to find The Gloom,`,
-                            `who suddenly looks familiar. He was her husband,`,
-                            `the last person to visit her grave,`,
+                            `She turned around to find The Gloom,`,
+                            `who suddenly looked familiar. He was her husband,`,
+                            `the last person to visit her grave`,
                             `before moving into a grave himself.`
                         ].join('\n'),
                         callback: (scene: Phaser.Scene) => {
@@ -119,7 +119,7 @@ export default class Player {
                                     `The Gloom believed that as long as he`,
                                     `could keep people in the graveyard,`,
                                     `they wouldn’t move on and leave him there alone.`,
-                                    `Alette tells the gloom:`,
+                                    `Alette told the gloom:`,
                                 ].join('\n'),
                                 callback: (scene: Phaser.Scene) => {
                                     scene.scene.start(QuoteScene.name, {
