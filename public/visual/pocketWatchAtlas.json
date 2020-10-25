@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"pocketWatch-idle0000.png": {
+		"pocketwatch-idle0000.png": {
 			"frame": {
 				"x": 0,
 				"y": 0,
@@ -20,7 +20,7 @@
 				"h": 120
 			}
 		},
-		"pocketWatch-idle0001.png": {
+		"pocketwatch-idle0001.png": {
 			"frame": {
 				"x": 120,
 				"y": 0,
@@ -40,7 +40,7 @@
 				"h": 120
 			}
 		},
-		"pocketWatch-idle0002.png": {
+		"pocketwatch-idle0002.png": {
 			"frame": {
 				"x": 0,
 				"y": 120,
@@ -60,7 +60,7 @@
 				"h": 120
 			}
 		},
-		"pocketWatch-idle0003.png": {
+		"pocketwatch-idle0003.png": {
 			"frame": {
 				"x": 120,
 				"y": 120,
@@ -80,7 +80,7 @@
 				"h": 120
 			}
 		},
-		"pocketWatch-idle0004.png": {
+		"pocketwatch-idle0004.png": {
 			"frame": {
 				"x": 240,
 				"y": 0,
@@ -100,7 +100,7 @@
 				"h": 120
 			}
 		},
-		"pocketWatch-idle0005.png": {
+		"pocketwatch-idle0005.png": {
 			"frame": {
 				"x": 240,
 				"y": 120,

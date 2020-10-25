@@ -10,6 +10,8 @@ export default class Item {
 
     constructor(scene: LevelScene, x: number, y: number, itemKey: string, scriptKey?: string) {
 
+        console.log(itemKey)
+
         this.sprite = scene.physics.add.staticSprite(x, y, Assets[itemKey + 'Sprite']);
         this.itemKey = itemKey
 

@@ -41,7 +41,7 @@ export default class InventoryScene extends Phaser.Scene {
         }
         if (state.items.pocketwatch) {
             const xPos = Config.scale.width / 2;
-            this.add.image(xPos, 60, Assets.pocketwatchAtlas);
+            this.add.image(xPos, 60, Assets.pocketwatchIcon);
         }
 
     }

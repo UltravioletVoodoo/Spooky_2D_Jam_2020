@@ -20,11 +20,9 @@ export default {
     mothersCharmSprite: 'visual/mothersCharmSprite.png',
     mothersCharmAtlas: 'visual/mothersCharmAtlas.json',
     mothersCharmIcon: 'visual/mothersCharmIcon.png',
-    pocketwatchSprite: 'visual/pocketwatchSprite.png',
-    pocketwatchAtlas: 'visual/pocketwatchAtlas.json',
-    pocketwatchIcon: 'visual/pocketwatchIcon.png',
-    keySprite: 'visual/keySprite.png',
-    keyAtlas: 'visual/keyAtlas.json',
+    pocketwatchSprite: 'visual/pocketWatchSprite.png',
+    pocketwatchAtlas: 'visual/pocketWatchAtlas.json',
+    pocketwatchIcon: 'visual/pocketWatchIcon.png',
     keyIcon: 'visual/keyIcon.png',
     player: 'visual/player.png',
     playerAtlas: 'visual/playerAtlas.json',
@@ -57,7 +55,6 @@ export default {
         scene.load.image(this.mothersCharmIcon, this.mothersCharmIcon);
         scene.load.atlas(this.pocketwatchSprite, this.pocketwatchSprite, this.pocketwatchAtlas);
         scene.load.image(this.pocketwatchIcon, this.pocketwatchIcon);
-        scene.load.atlas(this.keySprite, this.keySprite, this.keyAtlas);
         scene.load.image(this.keyIcon, this.keyIcon);
         scene.load.atlas(this.player, this.player, this.playerAtlas);
         scene.load.atlas(this.speechBubbles, this.speechBubbles, this.speechBubblesAtlas);

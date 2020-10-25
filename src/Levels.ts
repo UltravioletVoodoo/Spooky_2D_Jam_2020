@@ -33,17 +33,12 @@ const levels: Level[][] = [
                 {
                     x: 450,
                     y: 200,
-                    itemKey: 'locket'
+                    itemKey: 'mothersCharm'
                 },
                 {
                     x: 600,
                     y: 200,
                     itemKey: 'pocketwatch'
-                },
-                {
-                    x: 750,
-                    y: 200,
-                    itemKey: 'key'
                 },
             ],
         }
