@@ -75,7 +75,7 @@ export default class ControllerScene extends Phaser.Scene {
         state.enter = (this.keys.space.isDown || this.keys.enter.isDown);
         state.back = (this.keys.escape.isDown || this.keys.backspace.isDown);
         state.sprint = (this.keys.sprint.isDown);
-        if (state.sprintTime === 0 && state.sprint) {
+        if (state.sprintTime === 0 && state.sprint && this.scene.isActive(LevelScene.name)) {
             this.sound.play(Assets.ghostAudio);
         }
         if (state.sprint) {
