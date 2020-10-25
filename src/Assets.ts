@@ -19,6 +19,7 @@ export default {
     speechBubbles: 'visual/speechBubbles.png',
     speechBubblesAtlas: 'visual/speechBubblesAtlas.json',
     dialogue: 'visual/dialogue.png',
+    mainMenu: 'visual/mainMenu.png',
     tiles: 'visual/tiles.png',
     levels: [
         [ 'levels/00.json' ],
@@ -33,6 +34,7 @@ export default {
         scene.load.image(this.sister, this.sister);
         scene.load.image(this.gloom, this.gloom);
         scene.load.image(this.dialogue, this.dialogue);
+        scene.load.image(this.mainMenu, this.mainMenu);
         scene.load.atlas(this.auntSprite, this.auntSprite, this.auntSpriteAtlas);
         scene.load.atlas(this.grandpaSprite, this.grandpaSprite, this.grandpaSpriteAtlas);
         scene.load.atlas(this.sisterSprite, this.sisterSprite, this.sisterSpriteAtlas);

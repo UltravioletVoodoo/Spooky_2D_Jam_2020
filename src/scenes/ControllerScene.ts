@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import LevelScene from './LevelScene';
+import MainMenuScene from './MainMenuScene';
 import DebugScene from './DebugScene';
 import PostFxScene from './PostFxScene';
 import Config from '../Config';
@@ -41,7 +41,7 @@ export default class ControllerScene extends Phaser.Scene {
         }) as Keys;
 
         // Launch other scenes
-        this.scene.launch(LevelScene.name);
+        this.scene.launch(MainMenuScene.name);
         this.scene.launch(PostFxScene.name);
         if (Config.debug) {
             this.scene.launch(DebugScene.name);

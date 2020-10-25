@@ -6,6 +6,7 @@ import DialogueScene from './scenes/DialogueScene';
 import ControllerScene from './scenes/ControllerScene';
 import PostFxScene from './scenes/PostFxScene';
 import ChoiceScene from './scenes/ChoiceScene';
+import MainMenuScene from './scenes/MainMenuScene';
 
 const Game = new Phaser.Game(Config);
 
@@ -16,11 +17,14 @@ for (const scene of [
     DialogueScene,
     PostFxScene,
     ChoiceScene,
+    MainMenuScene,
 ]) {
     Game.scene.add(scene.name, scene);
 }
 
-// Start the first scene
-Game.scene.start(ControllerScene.name);
+setTimeout(() => {
+    Game.scene.start(ControllerScene.name);
+}, 100);
+
 
 export default Config;
