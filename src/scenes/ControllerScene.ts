@@ -6,6 +6,7 @@ import Config from '../Config';
 import State from '../State';
 import InventoryScene from './InventoryScene';
 import LevelScene from './LevelScene';
+import CreditScene from './CreditScene';
 
 const KeyCodes = Phaser.Input.Keyboard.KeyCodes;
 
@@ -41,7 +42,8 @@ export default class ControllerScene extends Phaser.Scene {
             escape: KeyCodes.ESC,
             backspace: KeyCodes.BACKSPACE,
 
-            debugKey: KeyCodes.ONE,
+            debug1: KeyCodes.ONE,
+            debug2: KeyCodes.TWO,
         }) as Keys;
 
         // Dummy text
@@ -79,9 +81,13 @@ export default class ControllerScene extends Phaser.Scene {
         ).normalize();
 
         if (Config.debug) {
-            if (this.keys.debugKey.isDown) {
+            if (this.keys.debug1.isDown) {
                 this.scene.stop(MainMenuScene.name);
                 this.scene.launch(LevelScene.name);
+            }
+            if (this.keys.debug2.isDown) {
+                this.scene.stop(MainMenuScene.name);
+                this.scene.launch(CreditScene.name);
             }
         }
 
