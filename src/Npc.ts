@@ -6,6 +6,7 @@ import LevelScene from './scenes/LevelScene';
 export default class Npc {
 
     public sprite: Phaser.Physics.Arcade.Sprite;
+    public speechBubblesSprite: Phaser.GameObjects.Sprite;
     public scriptKey: string;
 
     constructor(scene: LevelScene, x: number, y: number, name: string, scriptKey: string) {
@@ -33,6 +34,25 @@ export default class Npc {
             repeat: -1,
         });
         this.sprite.play(name + 'Sprite', true);
+
+        this.speechBubblesSprite = scene.add.sprite(x, y - Config.scale.tile, Assets.speechBubbles);
+        this.speechBubblesSprite.setDisplaySize(
+            0.75 * Config.scale.tile,
+            0.75 * Config.scale.tile,
+        );
+
+        scene.anims.create({
+            key: Assets.speechBubbles,
+            frames: scene.anims.generateFrameNames(Assets.speechBubbles, {
+                prefix: 'speechBubble000',
+                suffix: '.png',
+                start: 0,
+                end: 5,
+            }),
+            frameRate: 3,
+            repeat: -1,
+        });
+        this.speechBubblesSprite.setVisible(false);
     }
 
 }

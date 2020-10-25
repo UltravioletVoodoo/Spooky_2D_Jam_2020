@@ -22,7 +22,7 @@ export interface State {
     },
 }
 
-function createDfaultState(): State {
+function createDefaultState(): State {
     return {
         level: { x: 0, y: 0 },
         player: { x: Config.scale.width / 2, y: Config.scale.height / 2 },
@@ -61,7 +61,7 @@ class StateManager {
     load() {
         const jsonState = localStorage.getItem(StateKey);
         if (jsonState == null) {
-            this.state = createDfaultState();
+            this.state = createDefaultState();
         } else {
             this.state = JSON.parse(jsonState);
         }

@@ -98,8 +98,7 @@ export default class Player {
         for (const npc of this.scene.npcs) {
             if (npc.sprite.body.position.distance(this.sprite.body.position) < NpcActivationDistance && !visitedNpc) {
                 visitedNpc = true;
-                npc.sprite.setTint(0xff0000);
-
+                npc.speechBubblesSprite.setVisible(true);
                 if (state.enter && state.releasedEnter) {
                     state.releasedEnter = false;
                     state.dialogue = {
@@ -111,6 +110,8 @@ export default class Player {
 
             } else {
                 npc.sprite.setTint(0xffffff);
+                npc.speechBubblesSprite.play(Assets.speechBubbles);
+                npc.speechBubblesSprite.setVisible(false);
             }
         }
 
