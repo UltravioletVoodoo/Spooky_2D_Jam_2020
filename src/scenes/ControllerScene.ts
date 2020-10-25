@@ -56,6 +56,7 @@ export default class ControllerScene extends Phaser.Scene {
         state.right = !(this.keys.d.isUp && this.keys.right.isUp);
         state.enter = (this.keys.space.isDown || this.keys.enter.isDown);
         state.back = (this.keys.escape.isDown || this.keys.backspace.isDown);
+        state.released = state.released || !state.enter;
         state.direction = new Phaser.Math.Vector2(
             (state.right ? 1 : 0) - (state.left ? 1 : 0),
             (state.down ? 1 : 0) - (state.up ? 1 : 0),

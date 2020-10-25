@@ -12,6 +12,7 @@ export interface State {
     enter: boolean,
     back: boolean,
     direction: Phaser.Math.Vector2,
+    released: boolean,
     inTransition: boolean,
     dialogue?: {
         scriptKey: string,
@@ -29,6 +30,7 @@ function createDfaultState(): State {
         right: false,
         enter: false,
         back: false,
+        released: false,
         direction: new Phaser.Math.Vector2(0, 0),
         inTransition: false,
 

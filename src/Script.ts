@@ -1,16 +1,18 @@
 import Assets from './Assets';
 import State from './State';
 
+export interface Choice {
+    action: () => void,
+    text: string,
+}
+
 interface Script {
     [key: string]: {
         character: string,
         text: string,
         left: boolean,
-        choices: {
-            action: () => void,
-            text: string,
-        }[]
-    }[]
+        choices: Choice[],
+    }[],
 }
 
 // Just continues to the next part of the script

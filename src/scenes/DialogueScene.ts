@@ -4,6 +4,7 @@ import Config from '../Config';
 import Assets from '../Assets';
 import State from '../State';
 import Script from '../Script';
+import ChoiceScene from './ChoiceScene';
 
 const CharacterLeftX = Config.scale.width * 0.12;
 const CharacterRightX = Config.scale.width * 0.88;
@@ -148,7 +149,8 @@ export default class DialogueScene extends Phaser.Scene {
             return;
         }
         // Handle input
-        if (state.enter) {
+        if (state.enter && state.released) {
+            state.released = false;
             let script = Script[state.dialogue.scriptKey][state.dialogue.index];
             if (script.choices.length == 1) {
                 script.choices[0].action();
@@ -176,7 +178,33 @@ export default class DialogueScene extends Phaser.Scene {
                     });
                 }
             } else {
-                // TODO open menu allow for choice
+                this.scene.pause(DialogueScene.name);
+                this.scene.launch(ChoiceScene.name, [ script.choices, () => {
+                    this.scene.resume(DialogueScene.name);
+                    if (state.dialogue) {
+                        script = Script[state.dialogue.scriptKey][state.dialogue.index];
+                        this.time.delayedCall(500, () => {
+                            this.character.setX(script.left ? CharacterLeftX : CharacterRightX);
+                            this.character.setTexture(script.character);
+                            this.character.scaleX = script.left ? -Math.abs(this.character.scaleX) : Math.abs(this.character.scaleX);
+                            this.characterText.setText(fixText(CharacterNames[script.character]));
+                            this.dialogueText.setText(fixText(script.text));
+                        });
+                        this.add.tween({
+                            targets: [ this.character, this.characterText, this.dialogueText ],
+                            alpha: 0,
+                            duration: 500,
+                            ease: 'Power2',
+                        });
+                        this.add.tween({
+                            targets: [ this.character, this.characterText, this.dialogueText ],
+                            alpha: 1,
+                            duration: 500,
+                            ease: 'Power2',
+                            delay: 500,
+                        });
+                    }
+                }]);
             }
         }
 

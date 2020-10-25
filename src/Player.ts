@@ -37,7 +37,6 @@ export default class Player {
         );
         this.sprite.setDamping(true);
         this.sprite.setDrag(Drag);
-        console.log(this.sprite.body.offset);
 
         for (const name of Object.keys(Animations)) {
             scene.anims.create({
