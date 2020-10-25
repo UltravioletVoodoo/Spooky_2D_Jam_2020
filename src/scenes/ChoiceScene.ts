@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import State from '../State';
 import Config from '../Config';
 
 import { Choice } from '../Script';
@@ -66,9 +67,6 @@ export default class ChoiceScene extends Phaser.Scene {
             this.choiceText[i] = text;
             this.choiceTextShadows[i] = textShadow;
         });
-    }
-
-    update() {
         this.tweens.add({
             targets: this.choiceTextShadows[this.selectedChoice],
             alpha: 1,
@@ -76,6 +74,22 @@ export default class ChoiceScene extends Phaser.Scene {
             duration: 400,
             repeat: -1,
         });
+    }
+
+    update() {
+        const state = State.get(); 
+        if (state.up && state.releasedUp) {
+            state.releasedUp = false;
+            this.selectedChoice -= 1;
+            if (this.selectedChoice < 0) {
+                this.selectedChoice += this.choices.length;
+            }
+        } else if (state.down && state.releasedDown) {
+            state.releasedDown = false;
+            this.selectedChoice = (this.selectedChoice % this.choices.length);
+        } else if (state.enter && state.releasedEnter) {
+            state.releasedEnter = false;
+        }
     }
 
 }

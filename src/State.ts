@@ -12,7 +12,9 @@ export interface State {
     enter: boolean,
     back: boolean,
     direction: Phaser.Math.Vector2,
-    released: boolean,
+    releasedEnter: boolean,
+    releasedUp: boolean,
+    releasedDown: boolean,
     inTransition: boolean,
     dialogue?: {
         scriptKey: string,
@@ -30,7 +32,9 @@ function createDfaultState(): State {
         right: false,
         enter: false,
         back: false,
-        released: false,
+        releasedEnter: false,
+        releasedUp: false,
+        releasedDown: false,
         direction: new Phaser.Math.Vector2(0, 0),
         inTransition: false,
 

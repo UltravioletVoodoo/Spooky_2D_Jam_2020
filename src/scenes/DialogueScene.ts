@@ -149,8 +149,8 @@ export default class DialogueScene extends Phaser.Scene {
             return;
         }
         // Handle input
-        if (state.enter && state.released) {
-            state.released = false;
+        if (state.enter && state.releasedEnter) {
+            state.releasedEnter = false;
             let script = Script[state.dialogue.scriptKey][state.dialogue.index];
             if (script.choices.length == 1) {
                 script.choices[0].action();
