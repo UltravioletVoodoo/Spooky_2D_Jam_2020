@@ -4,6 +4,7 @@ import DebugScene from './DebugScene';
 import PostFxScene from './PostFxScene';
 import Config from '../Config';
 import State from '../State';
+import LevelScene from './LevelScene';
 
 const KeyCodes = Phaser.Input.Keyboard.KeyCodes;
 
@@ -38,14 +39,21 @@ export default class ControllerScene extends Phaser.Scene {
             space: KeyCodes.SPACE,
             escape: KeyCodes.ESC,
             backspace: KeyCodes.BACKSPACE,
+
+            debugKey: KeyCodes.ONE,
         }) as Keys;
 
+        // Dummy text
+        this.add.text(0, 0, 'load my font', { fontFamily: 'Caveat', color: 'black' });
+
         // Launch other scenes
-        this.scene.launch(MainMenuScene.name);
-        this.scene.launch(PostFxScene.name);
-        if (Config.debug) {
-            this.scene.launch(DebugScene.name);
-        }
+        this.time.delayedCall(0, () => {
+            this.scene.launch(MainMenuScene.name);
+            this.scene.launch(PostFxScene.name);
+            if (Config.debug) {
+                this.scene.launch(DebugScene.name);
+            }
+        });
     }
 
     update() {
@@ -63,6 +71,14 @@ export default class ControllerScene extends Phaser.Scene {
             (state.right ? 1 : 0) - (state.left ? 1 : 0),
             (state.down ? 1 : 0) - (state.up ? 1 : 0),
         ).normalize();
+
+        if (Config.debug) {
+            if (this.keys.debugKey.isDown) {
+                this.scene.stop(MainMenuScene.name);
+                this.scene.launch(LevelScene.name);
+            }
+        }
+
     }
 
 }

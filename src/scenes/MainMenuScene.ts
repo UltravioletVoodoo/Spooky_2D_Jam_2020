@@ -3,6 +3,7 @@ import State from '../State';
 import Config from '../Config';
 import Assets from '~/Assets';
 import LevelScene from './LevelScene';
+import QuoteScene from './QuoteScene';
 
 export default class MainMenuScene extends Phaser.Scene {
 
@@ -36,7 +37,7 @@ export default class MainMenuScene extends Phaser.Scene {
             targets: this.startTextShadow,
             alpha: 1,
             yoyo: true,
-            duration: 400,
+            duration: 800,
             repeat: -1,
         });
         this.startText = this.add.text(
@@ -50,15 +51,20 @@ export default class MainMenuScene extends Phaser.Scene {
             },
         );
         this.startText.setOrigin(0.5, 0.5);
+        this.cameras.main.fadeIn(2000);
     }
 
     update() {
-        const state = State.get();
+        const state = State.get();        
         if (state.enter) {
             this.startText.setColor('black');
             this.cameras.main.fadeOut(800);
             this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-                this.scene.start(LevelScene.name);
+                this.scene.start(QuoteScene.name, {
+                    delay: 7000,
+                    quote: `“After a loved one dies, there comes a time when you must move on,\n              not long after they must learn to move on too”`, callback: (scene: Phaser.Scene) => {
+                    scene.scene.start(LevelScene.name);
+                }});
             });
         }
     }
