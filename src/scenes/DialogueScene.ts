@@ -189,12 +189,14 @@ export default class DialogueScene extends Phaser.Scene {
         if (state.enter && state.releasedEnter) {
             state.releasedEnter = false;
             let script = Script[state.dialogue.scriptKey][state.dialogue.index];
-            if (script.choices.length == 1) {
-                script.choices[0].action();
+            let choices = script.choices();
+            if (choices.length == 1) {
+                choices[0].action();
                 this.nextDialogue();
             } else {
                 this.scene.pause(DialogueScene.name);
-                this.scene.launch(ChoiceScene.name, [ script.choices, () => {
+                console.log(choices);
+                this.scene.launch(ChoiceScene.name, [ choices, () => {
                     this.scene.resume(DialogueScene.name);
                     this.nextDialogue();
                 }]);

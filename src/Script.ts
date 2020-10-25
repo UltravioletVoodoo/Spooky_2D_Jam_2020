@@ -159,20 +159,21 @@ export default {
             text: 'Did you find him?',
             choices: () => {
                 const state = State.get();
-                if (state.dialogue) {
-                    state.dialogue = undefined;
+                if (state.items['dogtags']) {
+                    return [
+                        {
+                            action: gotoAction('yesChoiceAunt'),
+                            text: 'yes',
+                        },
+                        {
+                            action: gotoAction('noChoiceAunt'),
+                            text: 'no',
+                        }
+                    ];
                 }
-                return [
-                    {
-                        action: gotoAction('yesChoiceAunt'),
-                        text: 'yes',
-                    },
-                    {
-                        action: gotoAction('noChoiceAunt'),
-                        text: 'no',
-                    }
-                    // also, if player does not have dogtags, ExitDialogueChoices
-                ]
+                else {
+                    return ExitDialogueChoices();
+                }
             },
         },
     ],
@@ -202,7 +203,7 @@ export default {
         {
             character: Assets.alette,
             left: true,
-            text: 'No, Auntie. I hate to be the one to tell you this, but Uncle\npassed away not long ago. I found his dogtags over by his grave.',
+            text: 'No, Auntie. I hate to be the one to tell you this, but Uncle\npassed away not long ago. I found his dogtags over by his\ngrave.',
             choices: () => {
                 return [
                     {
@@ -282,17 +283,27 @@ export default {
             left: true,
             text: 'Did you find it?',
             choices: () => {
-                return [
-                    {
-                        action: gotoAction('yesChoiceGrandpa'),
-                        text: 'yes',
-                    },
-                    {
-                        action: ExitDialogueChoices,
-                        text: 'no',
-                    }
-                    // also, if player does not have pocketwatch, ExitDialogueChoices
-                ]
+                const state = State.get();
+                if (state.items['pocketwatch']) {
+                    return [
+                        {
+                            action: gotoAction('yesChoiceGrandpa'),
+                            text: 'yes',
+                        },
+                        {
+                            action: () => {
+                                const state = State.get();
+                                if (state.dialogue) {
+                                    state.dialogue = undefined;
+                                }
+                            },
+                            text: 'no',
+                        }
+                    ];
+                }
+                else {
+                    return ExitDialogueChoices();
+                }
             },
         },
     ],
@@ -381,22 +392,27 @@ export default {
             left: true,
             text: 'Did you find her?',
             choices: () => {
-                return [
-                    {
-                        action: gotoAction('yesChoiceSister'),
-                        text: 'yes',
-                    },
-                    {
-                        action: () => {
-                            const state = State.get();
-                            if (state.dialogue) {
-                                state.dialogue = undefined;
-                            }
+                const state = State.get();
+                if (state.items['locket']) {
+                    return [
+                        {
+                            action: gotoAction('yesChoiceSister'),
+                            text: 'yes',
                         },
-                        text: 'no',
-                    }
-                    // also, if player does not have the locket, ExitDialogueChoices
-                ]
+                        {
+                            action: () => {
+                                const state = State.get();
+                                if (state.dialogue) {
+                                    state.dialogue = undefined;
+                                }
+                            },
+                            text: 'no',
+                        }
+                    ]
+                }
+                else {
+                    return ExitDialogueChoices();
+                }
             },
         },
     ],
