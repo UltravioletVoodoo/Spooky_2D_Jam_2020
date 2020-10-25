@@ -25,6 +25,7 @@ export default class QuoteScene extends Phaser.Scene {
                 fontFamily: 'Caveat',
                 fontSize: 48,
                 color: 'white',
+                align: 'center',
             },
         );
         text.setOrigin(0.5, 0.5);

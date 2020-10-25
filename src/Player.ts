@@ -75,7 +75,7 @@ export default class Player {
         let actualVelocity = (state.sprint && state.sprintTime < 500) ? Velocity + Velocity * 1.5 * (500 - state.sprintTime) / 500 : Velocity;
         const directionVector = state.direction;
 
-        if (state.level.x === 1 && state.level.y === 3 && this.sprite.x > 1200 && state.right && (state.items.key != 0)) {
+        if (state.level.x === 1 && state.level.y === 3 && this.sprite.x > 1200 && state.right && state.items.key == 0) {
             this.sprite.x = 1200;
             state.dialogue = {
                 scriptKey: 'noKey',
@@ -99,27 +99,27 @@ export default class Player {
                 delay: 8000,
                 quote: [
                     `Alette, having escaped the clutches of the graveyard,`,
-                    ` finally returned home. What she found was shocking!`,
-                    `  Her family was not as she left them; her children`,
-                    `   were grown and had children of their own.`,
+                    `finally returned home. What she found was shocking!`,
+                    `Her family was not as she left them; her children`,
+                    `were grown and had children of their own.`,
                 ].join('\n'),
                 callback: (scene: Phaser.Scene) => {
                     scene.scene.start(QuoteScene.name, {
                         delay: 8000,
                         quote: [
-                            `      She turns around to find The Gloom,`,
+                            `She turns around to find The Gloom,`,
                             `who suddenly looks familiar. He was her husband,`,
-                            `    the last person to visit her grave,`,
-                            `     before moving into a grave himself.`
+                            `the last person to visit her grave,`,
+                            `before moving into a grave himself.`
                         ].join('\n'),
                         callback: (scene: Phaser.Scene) => {
                             scene.scene.start(QuoteScene.name, {
                                 delay: 8000,
                                 quote: [
-                                    `    The Gloom believed that as long as he`,
-                                    `    could keep people in the graveyard,`,
+                                    `The Gloom believed that as long as he`,
+                                    `could keep people in the graveyard,`,
                                     `they wouldn’t move on and leave him there alone.`,
-                                    `            Alette tells the gloom`,
+                                    `Alette tells the gloom:`,
                                 ].join('\n'),
                                 callback: (scene: Phaser.Scene) => {
                                     scene.scene.start(QuoteScene.name, {
