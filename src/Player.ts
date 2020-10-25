@@ -58,7 +58,7 @@ export default class Player {
 
     update() {
         const state = State.get();
-        const actualVelocity = (state.sprint && state.sprintTime < 1000) ? Velocity * 2 : Velocity;
+        const actualVelocity = (state.sprint && state.sprintTime < 500) ? Velocity + Velocity * 1.5 * (500 - state.sprintTime) / 500 : Velocity;
         const directionVector = state.direction;
 
         // Ensure we cannot exceed player velocity

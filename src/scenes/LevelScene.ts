@@ -102,6 +102,42 @@ export default class LevelScene extends Phaser.Scene {
         this.pocketWatch.setVisible(false);
         this.mothersCharm.setVisible(false);
         this.key.setVisible(false);
+
+        this.tweens.add({
+            targets: this.dogTags,
+            duration: 2000,
+            y: 65,
+            repeat: -1,
+            ease: 'Sine',
+            yoyo: true,
+        });
+        this.tweens.add({
+            targets: this.pocketWatch,
+            duration: 2000,
+            y: 65,
+            repeat: -1,
+            ease: 'Sine',
+            yoyo: true,
+            delay: 1100,
+        });
+        this.tweens.add({
+            targets: this.mothersCharm,
+            duration: 2000,
+            y: 65,
+            repeat: -1,
+            ease: 'Sine',
+            yoyo: true,
+            delay: 900,
+        });
+        this.tweens.add({
+            targets: this.key,
+            duration: 2000,
+            y: 65,
+            repeat: -1,
+            ease: 'Sine',
+            yoyo: true,
+            delay: 500,
+        });
     }
 
     update() {
