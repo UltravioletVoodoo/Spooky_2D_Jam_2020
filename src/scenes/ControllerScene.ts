@@ -6,6 +6,7 @@ import Config from '../Config';
 import State from '../State';
 import LevelScene from './LevelScene';
 import CreditScene from './CreditScene';
+import Assets from '~/Assets';
 
 const KeyCodes = Phaser.Input.Keyboard.KeyCodes;
 
@@ -65,7 +66,7 @@ export default class ControllerScene extends Phaser.Scene {
         });
     }
 
-    update() {
+    update(_, delta) {
         const state = State.get();
         state.up = !(this.keys.w.isUp && this.keys.up.isUp);
         state.down = !(this.keys.s.isUp && this.keys.down.isUp);
@@ -74,8 +75,13 @@ export default class ControllerScene extends Phaser.Scene {
         state.enter = (this.keys.space.isDown || this.keys.enter.isDown);
         state.back = (this.keys.escape.isDown || this.keys.backspace.isDown);
         state.sprint = (this.keys.sprint.isDown);
+        if (state.sprintTime === 0 && state.sprint) {
+            this.sound.play(Assets.ghostAudio);
+        }
         if (state.sprint) {
-            // state.sprintTime = Math.min(2000, state.sprintTime + this.time.);
+            state.sprintTime = Math.min(600, state.sprintTime + delta);
+        } else {
+            state.sprintTime = Math.max(0, state.sprintTime - delta * 2);
         }
         state.releasedEnter = state.releasedEnter || !state.enter;
         state.releasedUp = state.releasedUp || !state.up;
