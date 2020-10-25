@@ -58,13 +58,14 @@ export default class Player {
 
     update() {
         const state = State.get();
+        const actualVelocity = (state.sprint && state.sprintTime < 1000) ? Velocity * 2 : Velocity;
         const directionVector = state.direction;
 
         // Ensure we cannot exceed player velocity
         if (directionVector.length() > 0) {
             this.sprite.setMaxVelocity(
-                Velocity * Math.abs(directionVector.x),
-                Velocity * Math.abs(directionVector.y),
+                actualVelocity * Math.abs(directionVector.x),
+                actualVelocity * Math.abs(directionVector.y),
             );
         }
 

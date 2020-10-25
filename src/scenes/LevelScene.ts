@@ -32,11 +32,11 @@ export default class LevelScene extends Phaser.Scene {
     create() {
         // Load tileset
         const state = State.get();
-        const tilemap = this.make.tilemap({ key: Assets.levels[state.level.y][0] });
-        const tileset = tilemap.addTilesetImage('graveyardTileset', Assets.tiles);
+        const tilemap = this.make.tilemap({ key: Assets.levels[state.level.y][state.level.x] as any });
+        const tileset = tilemap.addTilesetImage('graveyard-tileset', Assets.tiles);
         const collisionLayer = tilemap.createStaticLayer('Tile Layer 1', tileset);
-        
-        const levelData = Levels[state.level.y][0];
+
+        const levelData = Levels[state.level.y][state.level.x];
         this.npcs = [];
         for (const npcData of levelData.npcs) {
             this.npcs.push(new Npc(

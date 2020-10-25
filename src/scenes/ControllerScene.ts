@@ -35,6 +35,9 @@ export default class ControllerScene extends Phaser.Scene {
             down: KeyCodes.DOWN,
             right: KeyCodes.RIGHT,
 
+            // shift
+            sprint: KeyCodes.SHIFT,
+
             // other controls
             enter: KeyCodes.ENTER,
             space: KeyCodes.SPACE,
@@ -70,6 +73,10 @@ export default class ControllerScene extends Phaser.Scene {
         state.right = !(this.keys.d.isUp && this.keys.right.isUp);
         state.enter = (this.keys.space.isDown || this.keys.enter.isDown);
         state.back = (this.keys.escape.isDown || this.keys.backspace.isDown);
+        state.sprint = (this.keys.sprint.isDown);
+        if (state.sprint) {
+            // state.sprintTime = Math.min(2000, state.sprintTime + this.time.);
+        }
         state.releasedEnter = state.releasedEnter || !state.enter;
         state.releasedUp = state.releasedUp || !state.up;
         state.releasedDown = state.releasedDown || !state.down;

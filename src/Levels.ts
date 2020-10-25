@@ -41,7 +41,16 @@ const levels: Level[][] = [
                     itemKey: 'pocketwatch'
                 },
             ],
-        }
+        },
+        {
+            npcs: [],
+            items: [],
+        },
+        {
+            // Room does not exist
+            npcs: [],
+            items: [],
+        },
     ],
     [
         /* 0 1 */ {
@@ -59,6 +68,45 @@ const levels: Level[][] = [
                     scriptKey: 'meetSister',
                 },
             ],
+            items: [],
+        },
+        {
+            npcs: [],
+            items: [],
+        },
+        {
+            // Room does not exist
+            npcs: [],
+            items: [],
+        },
+    ],
+    [
+        {
+            // Room does not exist
+            npcs: [],
+            items: [],
+        },
+        {
+            npcs: [],
+            items: [],
+        },
+        {
+            npcs: [],
+            items: [],
+        },
+    ],
+    [
+        {
+            // Room does not exist
+            npcs: [],
+            items: [],
+        },
+        {
+            npcs: [],
+            items: [],
+        },
+        {
+            npcs: [],
             items: [],
         },
     ],

@@ -16,6 +16,8 @@ export interface State {
     releasedUp: boolean,
     releasedDown: boolean,
     inTransition: boolean,
+    sprint: boolean,
+    sprintTime: number,
     items: { dogtags: boolean, pocketwatch: boolean, mothersCharm: boolean, key: boolean };
     dialogue?: {
         scriptKey: string,
@@ -25,8 +27,8 @@ export interface State {
 
 function createDefaultState(): State {
     return {
-        level: { x: 0, y: 0 },
-        player: { x: Config.scale.width / 2, y: Config.scale.height / 2 },
+        level: { x: 0, y: 1 },
+        player: { x: 1050, y: 525 },
         up: false,
         down: false,
         left: false,
@@ -38,6 +40,8 @@ function createDefaultState(): State {
         releasedDown: false,
         direction: new Phaser.Math.Vector2(0, 0),
         inTransition: false,
+        sprint: false,
+        sprintTime: 0,
         items: { dogtags: false, pocketwatch: false, mothersCharm: false, key: true },
 
         /* temp */

@@ -34,8 +34,10 @@ export default {
     credits2: 'visual/credits2.png',
     tiles: 'visual/tiles.png',
     levels: [
-        [ 'levels/00.json' ],
-        [ 'levels/01.json' ],
+        [ 'levels/00.json', 'levels/10.json', null ],
+        [ 'levels/01.json', 'levels/11.json', null ],
+        [ null, 'levels/12.json', 'levels/22.json' ],
+        [ null, 'levels/13.json', 'levels/23.json' ],
     ],
     shader: 'shader.glsl',
     menuAudio: 'audio/main_menu.mp3',
@@ -67,7 +69,9 @@ export default {
         scene.load.image(this.tiles, this.tiles);
         for (const row of this.levels) {
             for (const level of row) {
-                scene.load.tilemapTiledJSON(level, level);
+                if (level != null) {
+                    scene.load.tilemapTiledJSON(level, level);
+                }
             }
         }
         scene.load.audio(this.menuAudio, this.menuAudio);
