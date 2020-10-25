@@ -19,6 +19,9 @@ export interface State {
     inTransition: boolean,
     sprint: boolean,
     sprintTime: number,
+    visited: {
+        [name: string]: boolean,
+    },
     items: { dogtags: number, pocketwatch: number, mothersCharm: number, key: number }; //0=do not have, 1=seen, 2=has
     dialogue?: {
         scriptKey: string,
@@ -28,7 +31,6 @@ export interface State {
 
 function createDefaultState(): State {
     return {
-        // level: { x: 0, y: 1 },
         level: { x: 0, y: 1 },
         player: { x: 1050, y: 525 },
         wokenUp: false,
@@ -45,8 +47,12 @@ function createDefaultState(): State {
         inTransition: false,
         sprint: false,
         sprintTime: 0,
+        visited: {
+            aunt: false,
+            grandpa: false,
+            sister: false,
+        },
         items: { dogtags: 0, pocketwatch: 0, mothersCharm: 0, key: 0 },
-
         /* temp */
         dialogue: {
             scriptKey: 'testScene',

@@ -45,6 +45,7 @@ export default class LevelScene extends Phaser.Scene {
                 npcData.y, 
                 npcData.name, 
                 npcData.scriptKey,
+                npcData.scriptKeyReturn,
             ));
         }
 
