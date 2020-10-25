@@ -50,12 +50,15 @@ export default class LevelScene extends Phaser.Scene {
 
         this.items = [];
         for (const itemData of levelData.items) {
-            this.items.push(new Item(
-                this,
-                itemData.x,
-                itemData.y,
-                itemData.itemKey
-            ));
+            const state = State.get();
+            if (!state.items[itemData.itemKey]) {
+                this.items.push(new Item(
+                    this,
+                    itemData.x,
+                    itemData.y,
+                    itemData.itemKey
+                ));
+            }
         }
 
         // Load player and collission
