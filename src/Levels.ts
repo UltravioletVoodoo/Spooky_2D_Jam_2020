@@ -29,7 +29,22 @@ const levels: Level[][] = [
                     x: 300,
                     y: 200,
                     itemKey: 'dogtags'
-                }
+                },
+                {
+                    x: 450,
+                    y: 200,
+                    itemKey: 'locket'
+                },
+                {
+                    x: 600,
+                    y: 200,
+                    itemKey: 'pocketwatch'
+                },
+                {
+                    x: 750,
+                    y: 200,
+                    itemKey: 'key'
+                },
             ],
         }
     ],

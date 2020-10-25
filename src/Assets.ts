@@ -17,6 +17,15 @@ export default {
     dogtagsSprite: 'visual/dogTagsSprite.png',
     dogTagsAtlas: 'visual/dogTagsAtlas.json',
     dogTagsIcon: 'visual/dogTagsIcon.png',
+    mothersCharmSprite: 'visual/mothersCharmSprite.png',
+    mothersCharmAtlas: 'visual/mothersCharmAtlas.json',
+    mothersCharmIcon: 'visual/mothersCharmIcon.png',
+    pocketwatchSprite: 'visual/pocketwatchSprite.png',
+    pocketwatchAtlas: 'visual/pocketwatchAtlas.json',
+    pocketwatchIcon: 'visual/pocketwatchIcon.png',
+    keySprite: 'visual/keySprite.png',
+    keyAtlas: 'visual/keyAtlas.json',
+    keyIcon: 'visual/keyIcon.png',
     player: 'visual/player.png',
     playerAtlas: 'visual/playerAtlas.json',
     speechBubbles: 'visual/speechBubbles.png',
@@ -44,6 +53,12 @@ export default {
         scene.load.atlas(this.gloomSprite, this.gloomSprite, this.gloomSpriteAtlas);
         scene.load.atlas(this.dogtagsSprite, this.dogtagsSprite, this.dogTagsAtlas);
         scene.load.image(this.dogTagsIcon, this.dogTagsIcon);
+        scene.load.atlas(this.mothersCharmSprite, this.mothersCharmSprite, this.mothersCharmAtlas);
+        scene.load.image(this.mothersCharmIcon, this.mothersCharmIcon);
+        scene.load.atlas(this.pocketwatchSprite, this.pocketwatchSprite, this.pocketwatchAtlas);
+        scene.load.image(this.pocketwatchIcon, this.pocketwatchIcon);
+        scene.load.atlas(this.keySprite, this.keySprite, this.keyAtlas);
+        scene.load.image(this.keyIcon, this.keyIcon);
         scene.load.atlas(this.player, this.player, this.playerAtlas);
         scene.load.atlas(this.speechBubbles, this.speechBubbles, this.speechBubblesAtlas);
         scene.load.image(this.tiles, this.tiles);
