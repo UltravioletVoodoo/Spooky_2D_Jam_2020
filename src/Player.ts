@@ -187,7 +187,7 @@ Alette convinces The Gloom that it is their time, and they finally, truly, pass 
                 if (state.enter && state.releasedEnter) {
                     state.releasedEnter = false;
                     state.dialogue = {
-                        scriptKey: npc.scriptKey,
+                        scriptKey: state.visited[npc.name] ? npc.scriptKeyReturn : npc.scriptKey,
                         index: 0,
                     };
                     this.scene.scene.pause(LevelScene.name);

@@ -148,7 +148,17 @@ export default {
             character: Assets.aunt,
             left: true,
             text: 'Thank you, my love.',
-            choices: ExitDialogueChoices,
+            choices: () => [
+                {
+                    action: () => {
+                        const state = State.get();
+                        state.visited.aunt = true;
+                        if (state.dialogue) {
+                            state.dialogue = undefined;
+                        }
+                    },
+                }
+            ],
         },
     ],
 
@@ -273,7 +283,17 @@ export default {
             character: Assets.grandpa,
             left: true,
             text: 'Hmmph.',
-            choices: ExitDialogueChoices,
+            choices: () => [
+                {
+                    action: () => {
+                        const state = State.get();
+                        state.visited.grandpa = true;
+                        if (state.dialogue) {
+                            state.dialogue = undefined;
+                        }
+                    },
+                }
+            ],
         },
     ],
 
@@ -382,7 +402,17 @@ export default {
             character: Assets.alette,
             left: false,
             text: 'Wait here, I’ll see if I can find her.',
-            choices: ExitDialogueChoices,
+            choices: () => [
+                {
+                    action: () => {
+                        const state = State.get();
+                        state.visited.sister = true;
+                        if (state.dialogue) {
+                            state.dialogue = undefined;
+                        }
+                    },
+                }
+            ],
         },
     ],
 
@@ -449,7 +479,18 @@ export default {
             character: Assets.sister,
             left: true,
             text: 'No one should feel alone.\nHere, take the key, but it’s only a loan.',
-            choices: ExitDialogueChoices,
+            choices: () => [
+                {
+                    action: () => {
+                        const state = State.get();
+                        state.visited.sister = true;
+                        state.items.key = true;
+                        if (state.dialogue) {
+                            state.dialogue = undefined;
+                        }
+                    },
+                }
+            ],
         },
     ],
 

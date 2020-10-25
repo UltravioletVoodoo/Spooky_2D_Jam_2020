@@ -7,11 +7,15 @@ export default class Npc {
 
     public sprite: Phaser.Physics.Arcade.Sprite;
     public speechBubblesSprite: Phaser.GameObjects.Sprite;
+    public name: string;
     public scriptKey: string;
+    public scriptKeyReturn: string;
 
-    constructor(scene: LevelScene, x: number, y: number, name: string, scriptKey: string) {
+    constructor(scene: LevelScene, x: number, y: number, name: string, scriptKey: string, scriptKeyReturn: string) {
         const scale = name === 'gloom' ? 2 : 1;
+        this.name = name;
         this.scriptKey = scriptKey;
+        this.scriptKeyReturn = scriptKeyReturn;
         this.sprite = scene.physics.add.staticSprite(x, y, Assets[name + 'Sprite']);
         this.sprite.setDisplaySize(
             1.25 * Config.scale.tile * scale,

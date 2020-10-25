@@ -4,6 +4,7 @@ interface Level {
         y: number,
         name: string,
         scriptKey: string,
+        scriptKeyReturn: string,
     }[],
     items: {
         x: number,
@@ -57,13 +58,15 @@ const levels: Level[][] = [
                     y: 180,
                     name: 'aunt',
                     scriptKey: 'meetAunt',
+                    scriptKeyReturn: 'returnToAunt',
 
                 },
                 {
                     x: 700,
                     y: 620,
                     name: 'gloom',
-                    scriptKey: 'meetGloom'
+                    scriptKey: 'meetGloom',
+                    scriptKeyReturn: 'meetgGloom',
                 }
             ],
             items: [],
@@ -88,12 +91,14 @@ const levels: Level[][] = [
                     y: 185,
                     name: 'grandpa',
                     scriptKey: 'meetGrandpa',
+                    scriptKeyReturn: 'returnToGrandpa',
                 },
                 {
                     x: 140,
                     y: 500,
                     name: 'gloom',
-                    scriptKey: 'returnToGloom'
+                    scriptKey: 'returnToGloom',
+                    scriptKeyReturn: 'returnToGloom',
                 }
             ],
             items: [],
@@ -122,6 +127,7 @@ const levels: Level[][] = [
                     y: 255,
                     name: 'sister',
                     scriptKey: 'meetSister',
+                    scriptKeyReturn: 'returnToSister',
                 }
             ],
             items: [],
@@ -132,7 +138,8 @@ const levels: Level[][] = [
                     x: 950,
                     y: 340,
                     name: 'gloom',
-                    scriptKey: 'leaveGloom'
+                    scriptKey: 'leaveGloom',
+                    scriptKeyReturn: 'leaveGloom',
                 }
             ],
             items: [],
