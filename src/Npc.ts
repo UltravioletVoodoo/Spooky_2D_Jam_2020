@@ -21,6 +21,7 @@ export default class Npc {
             0.5  * Config.scale.tile * scale,
             1.00 * Config.scale.tile * scale,
         );
+        this.sprite.setOffset(40 * scale, 10 * scale);
 
         scene.anims.create({
             key: name + 'Sprite',

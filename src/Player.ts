@@ -34,8 +34,8 @@ export default class Player {
             1.25 * Config.scale.tile,
         );
         this.sprite.setSize(
-            0.5  * Config.scale.tile,
-            1.00 * Config.scale.tile,
+            20,
+            20,
         );
         this.sprite.setDamping(true);
         this.sprite.setDrag(Drag);
@@ -78,19 +78,19 @@ export default class Player {
         if (directionVector.x > 0) { 
             this.sprite.play(Animations.left, true); 
             this.sprite.scaleX = -Scale;
-            this.sprite.body.offset.x = 80;
+            this.sprite.body.offset.x = 70;
         } else if (directionVector.x < 0) { 
             this.sprite.play(Animations.left, true);
             this.sprite.scaleX = Scale;
-            this.sprite.body.offset.x = 40;
+            this.sprite.body.offset.x = 50;
         } else if (directionVector.y > 0) { 
             this.sprite.play(Animations.down, true);
             this.sprite.scaleX = Scale;
-            this.sprite.body.offset.x = 40;
+            this.sprite.body.offset.x = 50;
         } else if (directionVector.y < 0) { 
             this.sprite.play(Animations.up, true); 
             this.sprite.scaleX = Scale;
-            this.sprite.body.offset.x = 40;
+            this.sprite.body.offset.x = 50;
         }
 
         // Handle npcs
