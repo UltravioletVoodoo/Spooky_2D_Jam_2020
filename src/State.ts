@@ -19,10 +19,10 @@ export interface State {
     inTransition: boolean,
     sprint: boolean,
     sprintTime: number,
-    items: { dogtags: boolean, pocketwatch: boolean, mothersCharm: boolean, key: boolean };
     visited: {
         [name: string]: boolean,
     },
+    items: { dogtags: number, pocketwatch: number, mothersCharm: number, key: number }; //0=do not have, 1=seen, 2=has
     dialogue?: {
         scriptKey: string,
         index: number,
@@ -47,12 +47,12 @@ function createDefaultState(): State {
         inTransition: false,
         sprint: false,
         sprintTime: 0,
-        items: { dogtags: false, pocketwatch: false, mothersCharm: false, key: false },
         visited: {
             aunt: false,
             grandpa: false,
             sister: false,
         },
+        items: { dogtags: 0, pocketwatch: 0, mothersCharm: 0, key: 0 },
         /* temp */
         dialogue: {
             scriptKey: 'testScene',

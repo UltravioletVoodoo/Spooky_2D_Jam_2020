@@ -52,7 +52,7 @@ export default class LevelScene extends Phaser.Scene {
         this.items = [];
         for (const itemData of levelData.items) {
             const state = State.get();
-            if (!state.items[itemData.itemKey]) {
+            if (state.items[itemData.itemKey] == 0) {
                 this.items.push(new Item(
                     this,
                     itemData.x,
@@ -74,7 +74,7 @@ export default class LevelScene extends Phaser.Scene {
 
         for (const item of this.items) {
             this.physics.add.collider(this.player.sprite, item.sprite, (a, b) => {
-                state.items[item.itemKey] = true;
+                state.items[item.itemKey] = 2;
                 item.sprite.destroy();
                 this.sound.play(Assets.pickupAudio);
             });
@@ -157,19 +157,19 @@ export default class LevelScene extends Phaser.Scene {
         this.mothersCharm.setVisible(false);
         this.key.setVisible(false);
 
-        if (state.items.dogtags) {
+        if (state.items.dogtags == 2) {
             items.push(this.dogTags);
             this.dogTags.setVisible(true); 
         }
-        if (state.items.key) {
+        if (state.items.key == 2) {
             items.push(this.key);
             this.key.setVisible(true);
         }
-        if (state.items.mothersCharm) {
+        if (state.items.mothersCharm == 2) {
             items.push(this.mothersCharm);
             this.mothersCharm.setVisible(true);
         }
-        if (state.items.pocketwatch) {
+        if (state.items.pocketwatch == 2) {
             items.push(this.pocketWatch);
             this.pocketWatch.setVisible(true);
         }

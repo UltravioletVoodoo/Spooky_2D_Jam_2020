@@ -169,7 +169,7 @@ export default {
             text: 'Did you find him?',
             choices: () => {
                 const state = State.get();
-                if (state.items['dogtags']) {
+                if (state.items['dogtags'] > 0) {
                     return [
                         {
                             action: gotoAction('yesChoiceAunt'),
@@ -200,6 +200,10 @@ export default {
             left: false,
             text: 'Well, actually, not exactly. I hate to be the one to tell\nyou this, but Uncle passed away not long ago. I found his\ndogtags over by his grave.',
             choices: () => {
+                const state = State.get();
+                if (state.items) {
+                    state.items['dogtags'] = 1;
+                }
                 return [
                     {
                         action: gotoAction('auntReaction'),
@@ -215,6 +219,10 @@ export default {
             left: true,
             text: 'No, Auntie. I hate to be the one to tell you this, but Uncle\npassed away not long ago. I found his dogtags over by his\ngrave.',
             choices: () => {
+                const state = State.get();
+                if (state.items) {
+                    state.items['dogtags'] = 1;
+                }
                 return [
                     {
                         action: gotoAction('auntReaction'),
@@ -304,7 +312,7 @@ export default {
             text: 'Did you find it?',
             choices: () => {
                 const state = State.get();
-                if (state.items['pocketwatch']) {
+                if (state.items['pocketwatch'] > 0) {
                     return [
                         {
                             action: gotoAction('yesChoiceGrandpa'),
@@ -334,6 +342,10 @@ export default {
             left: false,
             text: 'I did.',
             choices: () => {
+                const state = State.get();
+                if (state.items) {
+                    state.items['pocketwatch'] = 1;
+                }
                 return [
                     {
                         action: gotoAction('grandpaReaction'),
@@ -423,7 +435,7 @@ export default {
             text: 'Did you find her?',
             choices: () => {
                 const state = State.get();
-                if (state.items['mothersCharm']) {
+                if (state.items['mothersCharm'] > 0) {
                     return [
                         {
                             action: gotoAction('yesChoiceSister'),
@@ -453,6 +465,10 @@ export default {
             left: false,
             text: 'Camilla, mother isn’t here, but I found this locket that\nbelonged to her. Maybe this will give you some comfort.',
             choices: () => {
+                const state = State.get();
+                if (state.items) {
+                    state.items['mothersCharm'] = 1;
+                }
                 return [
                     {
                         action: gotoAction('sisterReaction'),
@@ -484,7 +500,7 @@ export default {
                     action: () => {
                         const state = State.get();
                         state.visited.sister = true;
-                        state.items.key = true;
+                        state.items.key = 2;
                         if (state.dialogue) {
                             state.dialogue = undefined;
                         }

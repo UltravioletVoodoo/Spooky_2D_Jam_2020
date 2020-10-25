@@ -75,7 +75,7 @@ export default class Player {
         let actualVelocity = (state.sprint && state.sprintTime < 500) ? Velocity + Velocity * 1.5 * (500 - state.sprintTime) / 500 : Velocity;
         const directionVector = state.direction;
 
-        if (state.level.x === 1 && state.level.y === 3 && this.sprite.x > 1200 && state.right && !state.items.key) {
+        if (state.level.x === 1 && state.level.y === 3 && this.sprite.x > 1200 && state.right && (state.items.key != 0)) {
             this.sprite.x = 1200;
             state.dialogue = {
                 scriptKey: 'noKey',
