@@ -16,6 +16,14 @@ export default class CreditScene extends Phaser.Scene {
     }
 
     create() {
+        let themeSound = this.sound.get(Assets.themeAudio);
+        if (themeSound != null && themeSound.isPlaying) {
+            this.sound.stopAll();
+            this.sound.play(Assets.menuAudio, {
+                volume: 0.5,
+                loop: true,
+            });
+        }
         const image = this.add.image(this.scale.width / 2, this.scale.height / 2, Assets.credits1);
         this.cameras.main.fadeIn(2000);
         this.time.delayedCall(2000, () => {
