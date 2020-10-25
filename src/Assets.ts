@@ -43,6 +43,7 @@ export default {
     menuAudio: 'audio/main_menu.mp3',
     themeAudio: 'audio/main_theme.mp3',
     ghostAudio: 'audio/ghost.mp3',
+    pickupAudio: 'audio/pickup.mp3',
 
     preload(scene: Phaser.Scene) {
         scene.load.image(this.alette, this.alette);
@@ -78,6 +79,7 @@ export default {
         scene.load.audio(this.menuAudio, this.menuAudio);
         scene.load.audio(this.themeAudio, this.themeAudio);
         scene.load.audio(this.ghostAudio, this.ghostAudio);
+        scene.load.audio(this.pickupAudio, this.pickupAudio);
     }
 
 };

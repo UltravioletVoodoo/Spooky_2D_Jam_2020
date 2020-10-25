@@ -72,6 +72,7 @@ export default class LevelScene extends Phaser.Scene {
             this.physics.add.collider(this.player.sprite, item.sprite, (a, b) => {
                 state.items[item.itemKey] = true;
                 item.sprite.destroy();
+                this.sound.play(Assets.pickupAudio);
             });
         }
 
