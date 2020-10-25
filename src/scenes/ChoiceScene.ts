@@ -16,6 +16,7 @@ export default class ChoiceScene extends Phaser.Scene {
     private choiceTextShadows!: Phaser.GameObjects.Text[];
     private selectedChoice!: number;
     private callback!: () => void;
+    private currentShadow!: Phaser.Tweens.Tween;
 
     constructor() {
         super(ChoiceScene.name);
@@ -56,7 +57,7 @@ export default class ChoiceScene extends Phaser.Scene {
                 fixText(choice.text), 
                 {
                     fontFamily: 'Caveat',
-                    fontSize: 32,
+                    fontSize: 36,
                     color: 'white',
                 },
             );
@@ -67,7 +68,17 @@ export default class ChoiceScene extends Phaser.Scene {
             this.choiceText[i] = text;
             this.choiceTextShadows[i] = textShadow;
         });
-        this.tweens.add({
+        this.setShadow();
+    }
+
+    setShadow() {
+        if (this.currentShadow) {
+            for (const shadow of this.choiceTextShadows) {
+                shadow.alpha = 0;
+            }
+            this.tweens.remove(this.currentShadow);
+        }
+        this.currentShadow = this.tweens.add({
             targets: this.choiceTextShadows[this.selectedChoice],
             alpha: 1,
             yoyo: true,
@@ -84,11 +95,16 @@ export default class ChoiceScene extends Phaser.Scene {
             if (this.selectedChoice < 0) {
                 this.selectedChoice += this.choices.length;
             }
+            this.setShadow();
         } else if (state.down && state.releasedDown) {
             state.releasedDown = false;
-            this.selectedChoice = (this.selectedChoice % this.choices.length);
+            this.selectedChoice = (this.selectedChoice + 1) % this.choices.length;
+            this.setShadow();
         } else if (state.enter && state.releasedEnter) {
             state.releasedEnter = false;
+            this.choices[this.selectedChoice].action();
+            this.callback();
+            this.scene.stop(ChoiceScene.name);
         }
     }
 

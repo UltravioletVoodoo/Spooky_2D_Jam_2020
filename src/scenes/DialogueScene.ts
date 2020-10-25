@@ -137,7 +137,7 @@ export default class DialogueScene extends Phaser.Scene {
             // Handle dialogue box
             this.tweens.add({
                 targets: this.dialogueBox,
-                y: -Config.scale.height * 1.5,
+                y: Config.scale.height * 1.5,
                 duration: 1000,
                 ease: 'Power2',
                 delay: 1000,

@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default {
     alette: 'visual/alette.png',
-    aunt: 'viaual/aunt.png',
+    aunt: 'visual/aunt.png',
     grandpa: 'visual/grandpa.png',
     sister: 'visual/siter.png',
     gloom: 'visual/gloom.png',

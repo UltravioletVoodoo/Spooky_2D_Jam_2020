@@ -43,6 +43,7 @@ function gotoAction(key: string) {
         const state = State.get();
         if (state.dialogue) {
             state.dialogue.scriptKey = key;
+            state.dialogue.index = 0;
         }
     };
 }
