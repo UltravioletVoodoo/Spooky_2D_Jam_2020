@@ -19,7 +19,7 @@ export default class ControllerScene extends Phaser.Scene {
     private keys!: Keys;
 
     constructor() {
-        super(ControllerScene.name);
+        super('ControllerScene');
     }
 
     create() {
@@ -53,15 +53,15 @@ export default class ControllerScene extends Phaser.Scene {
         this.add.text(0, 0, 'load my font', { fontFamily: 'Caveat', color: 'black' });
 
         // Launch other scenes
-        this.scene.launch(PostFxScene.name);
+        this.scene.launch('PostFxScene');
         if (Config.debug) {
-            this.scene.launch(DebugScene.name);
+            this.scene.launch('DebugScene');
         }
         this.time.delayedCall(0, () => {
-            this.scene.launch(MainMenuScene.name);
-            this.scene.launch(PostFxScene.name);
+            this.scene.launch('MainMenuScene');
+            this.scene.launch('PostFxScene');
             if (Config.debug) {
-                this.scene.launch(DebugScene.name);
+                this.scene.launch('DebugScene');
             }
         });
     }
@@ -75,7 +75,7 @@ export default class ControllerScene extends Phaser.Scene {
         state.enter = (this.keys.space.isDown || this.keys.enter.isDown);
         state.back = (this.keys.escape.isDown || this.keys.backspace.isDown);
         state.sprint = (this.keys.sprint.isDown);
-        if (state.sprintTime === 0 && state.sprint && this.scene.isActive(LevelScene.name)) {
+        if (state.sprintTime === 0 && state.sprint && this.scene.isActive('LevelScene')) {
             this.sound.play(Assets.ghostAudio);
         }
         if (state.sprint) {
@@ -93,12 +93,12 @@ export default class ControllerScene extends Phaser.Scene {
 
         if (Config.debug) {
             if (this.keys.debug1.isDown) {
-                this.scene.stop(MainMenuScene.name);
-                this.scene.launch(LevelScene.name);
+                this.scene.stop('MainMenuScene');
+                this.scene.launch('LevelScene');
             }
             if (this.keys.debug2.isDown) {
-                this.scene.stop(MainMenuScene.name);
-                this.scene.launch(CreditScene.name);
+                this.scene.stop('MainMenuScene');
+                this.scene.launch('CreditScene');
             }
         }
 

@@ -19,7 +19,7 @@ export default class ChoiceScene extends Phaser.Scene {
     private currentShadow!: Phaser.Tweens.Tween;
 
     constructor() {
-        super(ChoiceScene.name);
+        super('ChoiceScene');
     }
 
     create(data: [ Choice[], () => void ]) {
@@ -104,7 +104,7 @@ export default class ChoiceScene extends Phaser.Scene {
             state.releasedEnter = false;
             this.choices[this.selectedChoice].action();
             this.callback();
-            this.scene.stop(ChoiceScene.name);
+            this.scene.stop('ChoiceScene');
         }
     }
 

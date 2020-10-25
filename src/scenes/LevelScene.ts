@@ -22,7 +22,7 @@ export default class LevelScene extends Phaser.Scene {
     private key!: Phaser.GameObjects.Image;
 
     constructor() {
-        super(LevelScene.name);
+        super('LevelScene');
     }
 
     preload() {
@@ -185,7 +185,7 @@ export default class LevelScene extends Phaser.Scene {
         this.cameras.main.fadeOut(TransitionTime / 2);
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
             stateUpdate();
-            this.scene.start(LevelScene.name);
+            this.scene.start('LevelScene');
         });
     }
 

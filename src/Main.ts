@@ -26,6 +26,6 @@ for (const scene of [
     Game.scene.add(scene.name, scene);
 }
 
-Game.scene.start(ControllerScene.name);
+Game.scene.start('ControllerScene');
 
 export default Config;

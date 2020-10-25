@@ -9,7 +9,7 @@ import State from '~/State';
 export default class CreditScene extends Phaser.Scene {
 
     constructor() {
-        super(CreditScene.name);
+        super('CreditScene');
     }
 
     preload() {
@@ -38,9 +38,9 @@ export default class CreditScene extends Phaser.Scene {
                             this.cameras.main.fadeOut(2000);
                             this.time.delayedCall(4000, () => {
                                 State.reset();
-                                this.scene.stop(LevelScene.name);
-                                this.scene.stop(DialogueScene.name);
-                                this.scene.start(MainMenuScene.name);
+                                this.scene.stop('LevelScene');
+                                this.scene.stop('DialogueScene');
+                                this.scene.start('MainMenuScene');
                             });
                         });
                     });

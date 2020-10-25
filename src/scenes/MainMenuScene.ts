@@ -11,7 +11,7 @@ export default class MainMenuScene extends Phaser.Scene {
     private startTextShadow!: Phaser.GameObjects.Text;
 
     constructor() {
-        super(MainMenuScene.name);
+        super('MainMenuScene');
     }
 
     preload() {
@@ -67,11 +67,11 @@ export default class MainMenuScene extends Phaser.Scene {
             this.startText.setColor('black');
             this.cameras.main.fadeOut(800);
             this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-                this.scene.start(QuoteScene.name, {
+                this.scene.start('QuoteScene', {
                     delay: 7000,
                     quote: `“After a loved one dies, there comes a time when you must move on.\n              Not long after, they must learn to move on too.”`,
                     callback: (scene: Phaser.Scene) => {
-                        scene.scene.start(LevelScene.name);
+                        scene.scene.start('LevelScene');
                     },
                 });
             });

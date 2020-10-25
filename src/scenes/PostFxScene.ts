@@ -5,7 +5,7 @@ import Assets from '../Assets';
 export default class PostFxScene extends Phaser.Scene {
 
     constructor() {
-        super(PostFxScene.name);
+        super('PostFxScene');
     }
 
     preload() {

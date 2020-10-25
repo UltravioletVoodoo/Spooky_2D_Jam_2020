@@ -6,12 +6,12 @@ export default class DebugScene extends Phaser.Scene {
     private text!: Phaser.GameObjects.Text;
 
     constructor() {
-        super(DebugScene.name);
+        super('DebugScene');
     }
 
     create() {
         this.text = this.add.text(10, 10, "");
-        this.scene.bringToTop(DebugScene.name);
+        this.scene.bringToTop('DebugScene');
     }
 
     update() {

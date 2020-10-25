@@ -64,8 +64,8 @@ export default class Player {
                     scriptKey: 'wakeUp',
                     index: 0,
                 };
-                this.scene.scene.pause(LevelScene.name);
-                this.scene.scene.launch(DialogueScene.name);
+                this.scene.scene.pause('LevelScene');
+                this.scene.scene.launch('DialogueScene');
             }
         });
     }
@@ -81,8 +81,8 @@ export default class Player {
                 scriptKey: 'noKey',
                 index: 0,
             };
-            this.scene.scene.pause(LevelScene.name);
-            this.scene.scene.launch(DialogueScene.name);
+            this.scene.scene.pause('LevelScene');
+            this.scene.scene.launch('DialogueScene');
         }
 
         // Ensure we cannot exceed player velocity
@@ -95,7 +95,7 @@ export default class Player {
 
         
         if (state.level.x === 2 && state.level.y === 3 && this.sprite.x > 1000) {
-            this.scene.scene.start(QuoteScene.name, {
+            this.scene.scene.start('QuoteScene', {
                 delay: 8000,
                 quote: [
                     `Alette, having escaped the clutches of the graveyard,`,
@@ -104,7 +104,7 @@ export default class Player {
                     `were grown and had children of their own.`,
                 ].join('\n'),
                 callback: (scene: Phaser.Scene) => {
-                    scene.scene.start(QuoteScene.name, {
+                    scene.scene.start('QuoteScene', {
                         delay: 8000,
                         quote: [
                             `She turned around to find The Gloom,`,
@@ -113,7 +113,7 @@ export default class Player {
                             `before moving into a grave himself.`
                         ].join('\n'),
                         callback: (scene: Phaser.Scene) => {
-                            scene.scene.start(QuoteScene.name, {
+                            scene.scene.start('QuoteScene', {
                                 delay: 8000,
                                 quote: [
                                     `The Gloom believed that as long as he`,
@@ -122,19 +122,19 @@ export default class Player {
                                     `Alette told the gloom:`,
                                 ].join('\n'),
                                 callback: (scene: Phaser.Scene) => {
-                                    scene.scene.start(QuoteScene.name, {
+                                    scene.scene.start('QuoteScene', {
                                         delay: 2000,
                                         quote: [
                                             `"It's time to move on"`
                                         ].join('\n'),
                                         callback: (scene: Phaser.Scene) => {
-                                            scene.scene.start(QuoteScene.name, {
+                                            scene.scene.start('QuoteScene', {
                                                 delay: 2000,
                                                 quote: [
                                                     `And that's what they did.`
                                                 ].join('\n'),
                                                 callback: (scene: Phaser.Scene) => {
-                                                    scene.scene.start(CreditScene.name);
+                                                    scene.scene.start('CreditScene');
                                                 }
                                             });
                                         }
@@ -190,8 +190,8 @@ Alette convinces The Gloom that it is their time, and they finally, truly, pass 
                         scriptKey: state.visited[npc.name] ? npc.scriptKeyReturn : npc.scriptKey,
                         index: 0,
                     };
-                    this.scene.scene.pause(LevelScene.name);
-                    this.scene.scene.launch(DialogueScene.name);
+                    this.scene.scene.pause('LevelScene');
+                    this.scene.scene.launch('DialogueScene');
                 }
 
             } else {

@@ -31,7 +31,7 @@ export default class DialogueScene extends Phaser.Scene {
     private dialogueText!: Phaser.GameObjects.Text;
 
     constructor() {
-        super(DialogueScene.name);
+        super('DialogueScene');
     }
 
     create() {
@@ -180,8 +180,8 @@ export default class DialogueScene extends Phaser.Scene {
                 delay: TransitionTime / 2,
             });
             this.time.delayedCall(TransitionTime, () => {
-                this.scene.resume(LevelScene.name);
-                this.scene.stop(DialogueScene.name);
+                this.scene.resume('LevelScene');
+                this.scene.stop('DialogueScene');
             });
             return;
         }
@@ -194,10 +194,10 @@ export default class DialogueScene extends Phaser.Scene {
                 choices[0].action();
                 this.nextDialogue();
             } else {
-                this.scene.pause(DialogueScene.name);
+                this.scene.pause('DialogueScene');
                 console.log(choices);
-                this.scene.launch(ChoiceScene.name, [ choices, () => {
-                    this.scene.resume(DialogueScene.name);
+                this.scene.launch('ChoiceScene', [ choices, () => {
+                    this.scene.resume('DialogueScene');
                     this.nextDialogue();
                 }]);
             }

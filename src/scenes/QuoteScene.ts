@@ -9,7 +9,7 @@ function fixText(text) {
 export default class QuoteScene extends Phaser.Scene {
 
     constructor() {
-        super(QuoteScene.name);
+        super('QuoteScene');
     }
 
     preload() {
