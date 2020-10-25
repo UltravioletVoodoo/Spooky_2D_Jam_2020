@@ -507,4 +507,13 @@ export default {
         },
     ],
 
+    noKey: [
+        {
+            character: Assets.alette,
+            left: false,
+            text: 'The gate is locked. I need a key.',
+            choices: ExitDialogueChoices,
+        }
+    ]
+
 } as Script;

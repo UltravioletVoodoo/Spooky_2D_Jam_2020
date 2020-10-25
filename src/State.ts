@@ -5,6 +5,7 @@ const StateKey = 'state';
 export interface State {
     level: { x: number, y: number };
     player: { x: number, y: number };
+    wokenUp: boolean,
     up: boolean,
     down: boolean,
     left: boolean,
@@ -30,6 +31,7 @@ function createDefaultState(): State {
         // level: { x: 0, y: 1 },
         level: { x: 0, y: 1 },
         player: { x: 1050, y: 525 },
+        wokenUp: false,
         up: false,
         down: false,
         left: false,
@@ -43,7 +45,7 @@ function createDefaultState(): State {
         inTransition: false,
         sprint: false,
         sprintTime: 0,
-        items: { dogtags: false, pocketwatch: false, mothersCharm: false, key: true },
+        items: { dogtags: false, pocketwatch: false, mothersCharm: false, key: false },
 
         /* temp */
         dialogue: {
@@ -76,6 +78,10 @@ class StateManager {
 
     save() {
         localStorage.setItem(StateKey, JSON.stringify(this.state));
+    }
+
+    reset() {
+        this.state = createDefaultState();
     }
 
 }

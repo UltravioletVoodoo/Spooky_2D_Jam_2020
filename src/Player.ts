@@ -56,12 +56,34 @@ export default class Player {
             });
         }
         this.sprite.play(Animations.down, true);
+
+        this.scene.time.delayedCall(800, () => {
+            if (!state.wokenUp) {
+                state.wokenUp = true;
+                state.dialogue = {
+                    scriptKey: 'wakeUp',
+                    index: 0,
+                };
+                this.scene.scene.pause(LevelScene.name);
+                this.scene.scene.launch(DialogueScene.name);
+            }
+        });
     }
 
     update() {
         const state = State.get();
-        const actualVelocity = (state.sprint && state.sprintTime < 500) ? Velocity + Velocity * 1.5 * (500 - state.sprintTime) / 500 : Velocity;
+        let actualVelocity = (state.sprint && state.sprintTime < 500) ? Velocity + Velocity * 1.5 * (500 - state.sprintTime) / 500 : Velocity;
         const directionVector = state.direction;
+
+        if (state.level.x === 1 && state.level.y === 3 && this.sprite.x > 1200 && state.right && !state.items.key) {
+            this.sprite.x = 1200;
+            state.dialogue = {
+                scriptKey: 'noKey',
+                index: 0,
+            };
+            this.scene.scene.pause(LevelScene.name);
+            this.scene.scene.launch(DialogueScene.name);
+        }
 
         // Ensure we cannot exceed player velocity
         if (directionVector.length() > 0) {
@@ -71,7 +93,8 @@ export default class Player {
             );
         }
 
-        if (state.level.x == 2 && state.level.y == 3 && this.sprite.x > 900) {
+        
+        if (state.level.x === 2 && state.level.y === 3 && this.sprite.x > 1000) {
             this.scene.scene.start(QuoteScene.name, {
                 delay: 8000,
                 quote: [
