@@ -16,7 +16,7 @@ export interface State {
     releasedUp: boolean,
     releasedDown: boolean,
     inTransition: boolean,
-    items: { dogtags: false, pocketwatch: false, locket: false, keys: false };
+    items: { dogtags: boolean, pocketwatch: boolean, locket: boolean, keys: boolean };
     dialogue?: {
         scriptKey: string,
         index: number,
