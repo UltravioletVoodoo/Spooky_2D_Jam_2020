@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"eugene-idle0000.png": {
+		"grandpa-idle0000.png": {
 			"frame": {
 				"x": 0,
 				"y": 0,
@@ -20,7 +20,7 @@
 				"h": 120
 			}
 		},
-		"eugene-idle0001.png": {
+		"grandpa-idle0001.png": {
 			"frame": {
 				"x": 120,
 				"y": 0,
@@ -40,7 +40,7 @@
 				"h": 120
 			}
 		},
-		"eugene-idle0002.png": {
+		"grandpa-idle0002.png": {
 			"frame": {
 				"x": 0,
 				"y": 120,
@@ -60,7 +60,7 @@
 				"h": 120
 			}
 		},
-		"eugene-idle0003.png": {
+		"grandpa-idle0003.png": {
 			"frame": {
 				"x": 120,
 				"y": 120,
@@ -80,7 +80,7 @@
 				"h": 120
 			}
 		},
-		"eugene-idle0004.png": {
+		"grandpa-idle0004.png": {
 			"frame": {
 				"x": 240,
 				"y": 0,
@@ -100,7 +100,7 @@
 				"h": 120
 			}
 		},
-		"eugene-idle0005.png": {
+		"grandpa-idle0005.png": {
 			"frame": {
 				"x": 240,
 				"y": 120,

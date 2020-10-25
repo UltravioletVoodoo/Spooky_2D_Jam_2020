@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"camilla-idle0000.png": {
+		"sister-idle0000.png": {
 			"frame": {
 				"x": 0,
 				"y": 0,
@@ -20,7 +20,7 @@
 				"h": 120
 			}
 		},
-		"camilla-idle0001.png": {
+		"sister-idle0001.png": {
 			"frame": {
 				"x": 120,
 				"y": 0,
@@ -40,7 +40,7 @@
 				"h": 120
 			}
 		},
-		"camilla-idle0002.png": {
+		"sister-idle0002.png": {
 			"frame": {
 				"x": 0,
 				"y": 120,
@@ -60,7 +60,7 @@
 				"h": 120
 			}
 		},
-		"camilla-idle0003.png": {
+		"sister-idle0003.png": {
 			"frame": {
 				"x": 120,
 				"y": 120,
@@ -80,7 +80,7 @@
 				"h": 120
 			}
 		},
-		"camilla-idle0004.png": {
+		"sister-idle0004.png": {
 			"frame": {
 				"x": 240,
 				"y": 0,
@@ -100,7 +100,7 @@
 				"h": 120
 			}
 		},
-		"camilla-idle0005.png": {
+		"sister-idle0005.png": {
 			"frame": {
 				"x": 240,
 				"y": 120,

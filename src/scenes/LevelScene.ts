@@ -3,7 +3,7 @@ import Config from '../Config';
 import Assets from '../Assets';
 import State from '../State';
 import Player from '../Player';
-import DialogueScene from './DialogueScene';
+import Npc from '../Npc';
 
 const TransitionTime = 2000;
 
@@ -26,11 +26,17 @@ export default class LevelScene extends Phaser.Scene {
         const tileset = tilemap.addTilesetImage('graveyardTileset', Assets.tiles);
         const collisionLayer = tilemap.createStaticLayer('Tile Layer 1', tileset);
 
+        const aunt = new Npc(this, 300, 300, 'aunt');
+        const grandpa = new Npc(this, 500, 200, 'grandpa');
+        const sister = new Npc(this, 700, 200, 'sister');
+        const gloom = new Npc(this, 900, 300, 'gloom');
+
         // Load player and collission
         this.player = new Player(this);
         collisionLayer.setDisplaySize(Config.scale.width, Config.scale.height);
         collisionLayer.setCollisionByProperty({ collides: true });
         this.physics.add.collider(this.player.sprite, collisionLayer);
+        this.physics.add.collider(this.player.sprite, aunt.sprite);
 
         // Initial camera fade in
         state.inTransition = true;
@@ -39,9 +45,6 @@ export default class LevelScene extends Phaser.Scene {
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_IN_COMPLETE, () => {
             state.inTransition = false;
         });
-
-        // tmp
-        this.scene.launch(DialogueScene.name);
     }
 
     update() {
