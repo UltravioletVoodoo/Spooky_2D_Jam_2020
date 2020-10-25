@@ -3,7 +3,7 @@
  "infinite":false,
  "layers":[
         {
-         "data":[50, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 51, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 52, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 37, 38, 52, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53, 54, 52, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 21, 52, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 66, 49, 49, 49, 49, 51, 0, 0, 0, 0, 50, 49, 49, 49, 49, 67],
+         "data":[50, 49, 49, 49, 49, 67, 17, 18, 18, 19, 66, 49, 49, 49, 49, 51, 52, 0, 0, 0, 6, 0, 33, 34, 34, 35, 0, 22, 0, 0, 0, 52, 52, 22, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 52, 52, 37, 38, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 22, 0, 52, 52, 53, 54, 0, 22, 0, 0, 0, 0, 65, 65, 0, 0, 21, 0, 52, 68, 0, 0, 0, 0, 0, 0, 5, 0, 65, 0, 0, 0, 0, 0, 68, 0, 0, 0, 0, 0, 0, 50, 49, 49, 51, 0, 20, 0, 0, 0, 0, 36, 0, 0, 0, 0, 0, 66, 49, 49, 67, 0, 0, 0, 4, 0, 36, 66, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 67],
          "height":9,
          "id":1,
          "name":"Tile Layer 1",
@@ -40,11 +40,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -52,11 +47,6 @@
                  "properties":[
                         {
                          "name":"collides",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
                          "type":"bool",
                          "value":false
                         }]
@@ -68,11 +58,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -80,11 +65,6 @@
                  "properties":[
                         {
                          "name":"collides",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
                          "type":"bool",
                          "value":false
                         }]
@@ -96,11 +76,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":true
                         }]
                 }, 
                 {
@@ -110,11 +85,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -122,11 +92,6 @@
                  "properties":[
                         {
                          "name":"collides",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
                          "type":"bool",
                          "value":false
                         }]
@@ -138,11 +103,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -150,11 +110,6 @@
                  "properties":[
                         {
                          "name":"collides",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
                          "type":"bool",
                          "value":false
                         }]
@@ -166,11 +121,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -180,11 +130,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -194,11 +139,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -206,11 +146,6 @@
                  "properties":[
                         {
                          "name":"collides",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
                          "type":"bool",
                          "value":false
                         }]
@@ -222,11 +157,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -234,11 +164,6 @@
                  "properties":[
                         {
                          "name":"collides",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
                          "type":"bool",
                          "value":false
                         }]
@@ -250,11 +175,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -264,11 +184,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -278,11 +193,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -292,11 +202,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -306,11 +211,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -320,11 +220,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -334,11 +229,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -348,11 +238,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -362,11 +247,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -374,11 +254,6 @@
                  "properties":[
                         {
                          "name":"collides",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"isNPC",
                          "type":"bool",
                          "value":false
                         }]
@@ -390,11 +265,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -404,11 +274,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -418,11 +283,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -432,11 +292,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }, 
                 {
@@ -446,11 +301,6 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"isNPC",
-                         "type":"bool",
-                         "value":false
                         }]
                 }],
          "tilewidth":120

@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default {
     type: Phaser.AUTO,
-    backgroundColor: 0xa0a0a0,
+    backgroundColor: 0x000000,
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH,
         width: 1280,

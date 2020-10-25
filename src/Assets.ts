@@ -12,6 +12,7 @@ export default {
     tiles: 'visual/tiles.png',
     levels: [
         [ 'levels/00.json' ],
+        [ 'levels/01.json' ],
     ],
     shader: 'shader.glsl',
 
