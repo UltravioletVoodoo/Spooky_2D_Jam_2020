@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import Assets from './Assets';
 import Config from './Config';
+import DialogueScene from './scenes/DialogueScene';
 import LevelScene from './scenes/LevelScene';
 import State from './State';
 
@@ -8,6 +9,7 @@ const Scale = Config.scale.tile * 1.25 / 120;
 const Velocity = 250;
 const Acceleration = Infinity;
 const Drag = 0.8;
+const NpcActivationDistance = 150;
 const Animations = {
     down: 'alette-down000',
     left: 'alette-left000',
@@ -89,6 +91,27 @@ export default class Player {
             this.sprite.play(Animations.up, true); 
             this.sprite.scaleX = Scale;
             this.sprite.body.offset.x = 40;
+        }
+
+        // Handle npcs
+        let visitedNpc = false;
+        for (const npc of this.scene.npcs) {
+            if (npc.sprite.body.position.distance(this.sprite.body.position) < NpcActivationDistance && !visitedNpc) {
+                visitedNpc = true;
+                npc.sprite.setTint(0xff0000);
+
+                if (state.enter && state.releasedEnter) {
+                    state.releasedEnter = false;
+                    state.dialogue = {
+                        scriptKey: npc.scriptKey,
+                        index: 0,
+                    };
+                    this.scene.scene.launch(DialogueScene.name);
+                }
+
+            } else {
+                npc.sprite.setTint(0xffffff);
+            }
         }
 
         // Handle transitions

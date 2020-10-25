@@ -16,6 +16,8 @@ export default {
     gloomSpriteAtlas: 'visual/gloomSpriteAtlas.json',
     player: 'visual/player.png',
     playerAtlas: 'visual/playerAtlas.json',
+    speechBubbles: 'visual/speechBubbles.png',
+    speechBubblesAtlas: 'visual/speechBubblesAtlas.json',
     dialogue: 'visual/dialogue.png',
     tiles: 'visual/tiles.png',
     levels: [
@@ -36,6 +38,7 @@ export default {
         scene.load.atlas(this.sisterSprite, this.sisterSprite, this.sisterSpriteAtlas);
         scene.load.atlas(this.gloomSprite, this.gloomSprite, this.gloomSpriteAtlas);
         scene.load.atlas(this.player, this.player, this.playerAtlas);
+        scene.load.atlas(this.speechBubbles, this.speechBubbles, this.speechBubblesAtlas);
         scene.load.image(this.tiles, this.tiles);
         for (const row of this.levels) {
             for (const level of row) {

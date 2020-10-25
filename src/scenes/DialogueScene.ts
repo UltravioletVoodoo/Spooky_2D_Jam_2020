@@ -8,6 +8,7 @@ import ChoiceScene from './ChoiceScene';
 
 const CharacterLeftX = Config.scale.width * 0.12;
 const CharacterRightX = Config.scale.width * 0.88;
+const TransitionTime = 500;
 
 const CharacterNames = {
     [Assets.alette]: 'Alette',
@@ -39,7 +40,7 @@ export default class DialogueScene extends Phaser.Scene {
         this.fade.alpha = 0;
         this.tweens.add({
             targets: this.fade,
-            duration: 1000,
+            duration: TransitionTime,
             alpha: 1,
             ease: 'Power2',
         });
@@ -61,9 +62,10 @@ export default class DialogueScene extends Phaser.Scene {
         this.character.alpha = 0;
         this.tweens.add({
             targets: this.character,
-            duration: 3000,
+            duration: TransitionTime * 2,
             alpha: 0.9,
             ease: 'Power2',
+            delay: TransitionTime,
         });
         this.tweens.add({
             targets: this.character,
@@ -79,7 +81,7 @@ export default class DialogueScene extends Phaser.Scene {
         this.tweens.add({
             targets: this.dialogueBox,
             y: Config.scale.height * 0.75,
-            duration: 1000,
+            duration: TransitionTime,
             ease: 'Power2',
         });
 
@@ -108,9 +110,44 @@ export default class DialogueScene extends Phaser.Scene {
         this.dialogueText.alpha = 0;
         this.tweens.add({
             targets: [ this.dialogueText, this.characterText ],
-            duration: 1000,
-            delay: 1000,
+            duration: TransitionTime,
+            delay: TransitionTime,
             alpha: 1,
+        });
+    }
+
+    nextDialogue() {
+        const state = State.get();
+        if (!state.dialogue) {
+            return;
+        }
+        const script = Script[state.dialogue.scriptKey][state.dialogue.index];
+        this.time.delayedCall(TransitionTime, () => {
+            this.character.setX(script.left ? CharacterLeftX : CharacterRightX);
+            this.character.setTexture(script.character);
+            this.character.scaleX = script.left ? -Math.abs(this.character.scaleX) : Math.abs(this.character.scaleX);
+            this.characterText.setText(fixText(CharacterNames[script.character]));
+            this.dialogueText.setText(fixText(script.text));
+        });
+        this.add.tween({
+            targets: [ this.character, this.characterText, this.dialogueText ],
+            alpha: 0,
+            duration: TransitionTime,
+            ease: 'Power2',
+        });
+        this.add.tween({
+            targets: [ this.characterText, this.dialogueText ],
+            alpha: 1,
+            duration: TransitionTime,
+            ease: 'Power2',
+            delay: TransitionTime,
+        });
+        this.add.tween({
+            targets: [ this.character ],
+            alpha: 1,
+            duration: TransitionTime * 2,
+            ease: 'Power2',
+            delay: TransitionTime * 1.5,
         });
     }
 
@@ -121,15 +158,15 @@ export default class DialogueScene extends Phaser.Scene {
             // Handle fade
             this.tweens.add({
                 targets: this.fade,
-                duration: 1000,
+                duration: TransitionTime / 2,
                 ease: 'Power2',
                 alpha: 0,
-                delay: 1000,
+                delay: TransitionTime / 2,
             })
 
             this.add.tween({
                 targets: [ this.character, this.characterText, this.dialogueText ],
-                duration: 1000,
+                duration: TransitionTime / 2,
                 ease: 'Power2',
                 alpha: 0,
             });
@@ -138,11 +175,11 @@ export default class DialogueScene extends Phaser.Scene {
             this.tweens.add({
                 targets: this.dialogueBox,
                 y: Config.scale.height * 1.5,
-                duration: 1000,
+                duration: TransitionTime * 2,
                 ease: 'Power2',
-                delay: 1000,
+                delay: TransitionTime / 2,
             });
-            this.time.delayedCall(2000, () => {
+            this.time.delayedCall(TransitionTime, () => {
                 this.scene.resume(LevelScene.name);
                 this.scene.stop(DialogueScene.name);
             });
@@ -154,56 +191,12 @@ export default class DialogueScene extends Phaser.Scene {
             let script = Script[state.dialogue.scriptKey][state.dialogue.index];
             if (script.choices.length == 1) {
                 script.choices[0].action();
-                if (state.dialogue) {
-                    script = Script[state.dialogue.scriptKey][state.dialogue.index];
-                    this.time.delayedCall(500, () => {
-                        this.character.setX(script.left ? CharacterLeftX : CharacterRightX);
-                        this.character.setTexture(script.character);
-                        this.character.scaleX = script.left ? -Math.abs(this.character.scaleX) : Math.abs(this.character.scaleX);
-                        this.characterText.setText(fixText(CharacterNames[script.character]));
-                        this.dialogueText.setText(fixText(script.text));
-                    });
-                    this.add.tween({
-                        targets: [ this.character, this.characterText, this.dialogueText ],
-                        alpha: 0,
-                        duration: 500,
-                        ease: 'Power2',
-                    });
-                    this.add.tween({
-                        targets: [ this.character, this.characterText, this.dialogueText ],
-                        alpha: 1,
-                        duration: 500,
-                        ease: 'Power2',
-                        delay: 500,
-                    });
-                }
+                this.nextDialogue();
             } else {
                 this.scene.pause(DialogueScene.name);
                 this.scene.launch(ChoiceScene.name, [ script.choices, () => {
                     this.scene.resume(DialogueScene.name);
-                    if (state.dialogue) {
-                        script = Script[state.dialogue.scriptKey][state.dialogue.index];
-                        this.time.delayedCall(500, () => {
-                            this.character.setX(script.left ? CharacterLeftX : CharacterRightX);
-                            this.character.setTexture(script.character);
-                            this.character.scaleX = script.left ? -Math.abs(this.character.scaleX) : Math.abs(this.character.scaleX);
-                            this.characterText.setText(fixText(CharacterNames[script.character]));
-                            this.dialogueText.setText(fixText(script.text));
-                        });
-                        this.add.tween({
-                            targets: [ this.character, this.characterText, this.dialogueText ],
-                            alpha: 0,
-                            duration: 500,
-                            ease: 'Power2',
-                        });
-                        this.add.tween({
-                            targets: [ this.character, this.characterText, this.dialogueText ],
-                            alpha: 1,
-                            duration: 500,
-                            ease: 'Power2',
-                            delay: 500,
-                        });
-                    }
+                    this.nextDialogue();
                 }]);
             }
         }

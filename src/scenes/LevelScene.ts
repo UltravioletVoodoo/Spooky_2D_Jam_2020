@@ -4,12 +4,14 @@ import Assets from '../Assets';
 import State from '../State';
 import Player from '../Player';
 import Npc from '../Npc';
+import Levels from '~/Levels';
 
-const TransitionTime = 2000;
+const TransitionTime = 800;
 
 export default class LevelScene extends Phaser.Scene {
 
     private player!: Player;
+    public npcs!: Npc[];
 
     constructor() {
         super(LevelScene.name);
@@ -25,18 +27,28 @@ export default class LevelScene extends Phaser.Scene {
         const tilemap = this.make.tilemap({ key: Assets.levels[state.level.y][0] });
         const tileset = tilemap.addTilesetImage('graveyardTileset', Assets.tiles);
         const collisionLayer = tilemap.createStaticLayer('Tile Layer 1', tileset);
-
-        const aunt = new Npc(this, 300, 300, 'aunt');
-        const grandpa = new Npc(this, 500, 200, 'grandpa');
-        const sister = new Npc(this, 700, 200, 'sister');
-        const gloom = new Npc(this, 900, 300, 'gloom');
+        
+        const levelData = Levels[state.level.y][0];
+        this.npcs = [];
+        for (const npcData of levelData.npcs) {
+            this.npcs.push(new Npc(
+                this, 
+                npcData.x,
+                npcData.y, 
+                npcData.name, 
+                npcData.scriptKey,
+            ));
+        }
 
         // Load player and collission
         this.player = new Player(this);
         collisionLayer.setDisplaySize(Config.scale.width, Config.scale.height);
         collisionLayer.setCollisionByProperty({ collides: true });
         this.physics.add.collider(this.player.sprite, collisionLayer);
-        this.physics.add.collider(this.player.sprite, aunt.sprite);
+
+        for (const npc of this.npcs) {
+            this.physics.add.collider(this.player.sprite, npc.sprite);
+        }
 
         // Initial camera fade in
         state.inTransition = true;
@@ -45,6 +57,9 @@ export default class LevelScene extends Phaser.Scene {
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_IN_COMPLETE, () => {
             state.inTransition = false;
         });
+
+        // temp
+        // this.scene.launch(DialogueScene.name);
     }
 
     update() {

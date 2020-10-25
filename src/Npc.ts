@@ -6,9 +6,11 @@ import LevelScene from './scenes/LevelScene';
 export default class Npc {
 
     public sprite: Phaser.Physics.Arcade.Sprite;
+    public scriptKey: string;
 
-    constructor(scene: LevelScene, x: number, y: number, name: string) {
+    constructor(scene: LevelScene, x: number, y: number, name: string, scriptKey: string) {
         const scale = name === 'gloom' ? 2 : 1;
+        this.scriptKey = scriptKey;
         this.sprite = scene.physics.add.staticSprite(x, y, Assets[name + 'Sprite']);
         this.sprite.setDisplaySize(
             1.25 * Config.scale.tile * scale,
