@@ -7,10 +7,10 @@ import MainMenuScene from './scenes/MainMenuScene';
 import PauseMenuScene from './scenes/PauseMenuScene';
 import CreditsScene from './scenes/CreditsScene';
 import ControllerScene from './scenes/ControllerScene';
+import PostFxScene from './scenes/PostFxScene';
 
 const Game = new Phaser.Game(Config);
 
-// Load Scenes
 for (const scene of [
     ControllerScene,
     LevelScene,
@@ -19,6 +19,7 @@ for (const scene of [
     MainMenuScene,
     PauseMenuScene,
     CreditsScene,
+    PostFxScene,
 ]) {
     Game.scene.add(scene.name, scene);
 }

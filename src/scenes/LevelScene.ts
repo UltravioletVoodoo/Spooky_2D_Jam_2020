@@ -20,6 +20,7 @@ export default class LevelScene extends Phaser.Scene {
 
     create() {
         const state = State.get();
+
         // const tilemap = this.make.tilemap({ key: Assets.levels[state.level.x][state.level.y] });
         const tilemap = this.make.tilemap({ key: Assets.levels[0][0] });
         const tileset = tilemap.addTilesetImage('graveyardTileset', Assets.tiles);

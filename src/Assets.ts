@@ -7,6 +7,7 @@ export default {
     levels: [
         [ 'levels/00.json' ],
     ],
+    shader: 'shader.glsl',
 
     preload(scene: Phaser.Scene) {
         scene.load.atlas(this.player, this.player, this.playerAtlas);
