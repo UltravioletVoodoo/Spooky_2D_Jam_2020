@@ -17,95 +17,103 @@ const levels: Level[][] = [
     [
         /* 0 0 */ {
             npcs: [
-                {
-                    x: 200,
-                    y: 200,
-                    name: 'aunt',
-                    scriptKey: 'meetAunt',
-                }
+
             ],
             items: [
                 {
-                    x: 300,
-                    y: 200,
+                    x: 192,
+                    y: 567,
                     itemKey: 'dogtags'
-                },
-                {
-                    x: 450,
-                    y: 200,
-                    itemKey: 'mothersCharm'
-                },
-                {
-                    x: 600,
-                    y: 200,
-                    itemKey: 'pocketwatch'
                 },
             ],
         },
         {
+            // 10
             npcs: [],
-            items: [],
+            items: [
+                {
+                    x: 251,
+                    y: 388,
+                    itemKey: 'pocketwatch'
+                }
+            ],
         },
         {
-            // Room does not exist
+            // Room does not exist 20
             npcs: [],
             items: [],
         },
     ],
     [
         /* 0 1 */ {
+            npcs: [],
+            items: [],
+        },
+        // 11
+        {
             npcs: [
                 {
-                    x: 1000,
-                    y: 500,
-                    name: 'grandpa',
-                    scriptKey: 'meetGrandpa',
-                },
-                {
                     x: 800,
-                    y: 550,
-                    name: 'sister',
-                    scriptKey: 'meetSister',
-                },
+                    y: 180,
+                    name: 'aunt',
+                    scriptKey: 'meetAunt',
+
+                }
             ],
             items: [],
         },
         {
-            npcs: [],
-            items: [],
-        },
-        {
-            // Room does not exist
+            // Room does not exist 21
             npcs: [],
             items: [],
         },
     ],
     [
         {
-            // Room does not exist
+            // Room does not exist 02
             npcs: [],
             items: [],
         },
-        {
-            npcs: [],
+        {// 12
+            npcs: [
+                {
+                    x: 500,
+                    y: 185,
+                    name: 'grandpa',
+                    scriptKey: 'meetGrandpa',
+                }
+            ],
             items: [],
         },
-        {
+        {// 22
             npcs: [],
-            items: [],
+            items: [
+                {
+                    x: 1100,
+                    y: 150,
+                    itemKey: 'mothersCharm',
+                }
+            ],
         },
     ],
     [
         {
-            // Room does not exist
+            // Room does not exist 03
             npcs: [],
             items: [],
         },
-        {
-            npcs: [],
+        { // 13
+            npcs: [
+                {
+                    x: 440,
+                    y: 255,
+                    name: 'sister',
+                    scriptKey: 'meetSister',
+                }
+            ],
             items: [],
         },
-        {
+        {// 23
             npcs: [],
             items: [],
         },
