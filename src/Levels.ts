@@ -11,6 +11,10 @@ interface Level {
         itemKey: string,
         scriptKey?: string,
     }[],
+    enemies: {
+        x: number,
+        y: number
+    }[],
 }
 
 const levels: Level[][] = [
@@ -26,6 +30,7 @@ const levels: Level[][] = [
                     itemKey: 'dogtags'
                 },
             ],
+            enemies: []
         },
         {
             // 10
@@ -37,17 +42,25 @@ const levels: Level[][] = [
                     itemKey: 'pocketwatch'
                 }
             ],
+            enemies: []
         },
         {
             // Room does not exist 20
             npcs: [],
             items: [],
+            enemies: []
         },
     ],
     [
         /* 0 1 */ {
             npcs: [],
             items: [],
+            enemies: [
+                {
+                    x: 250,
+                    y: 250,
+                }
+            ]
         },
         // 11
         {
@@ -67,11 +80,13 @@ const levels: Level[][] = [
                 }
             ],
             items: [],
+            enemies: []
         },
         {
             // Room does not exist 21
             npcs: [],
             items: [],
+            enemies: []
         },
     ],
     [
@@ -79,6 +94,7 @@ const levels: Level[][] = [
             // Room does not exist 02
             npcs: [],
             items: [],
+            enemies: []
         },
         {// 12
             npcs: [
@@ -97,6 +113,7 @@ const levels: Level[][] = [
                 }
             ],
             items: [],
+            enemies: []
         },
         {// 22
             npcs: [],
@@ -107,6 +124,7 @@ const levels: Level[][] = [
                     itemKey: 'mothersCharm',
                 }
             ],
+            enemies: []
         },
     ],
     [
@@ -114,6 +132,7 @@ const levels: Level[][] = [
             // Room does not exist 03
             npcs: [],
             items: [],
+            enemies: []
         },
         { // 13
             npcs: [
@@ -125,6 +144,7 @@ const levels: Level[][] = [
                 }
             ],
             items: [],
+            enemies: []
         },
         {// 23
             npcs: [
@@ -136,6 +156,7 @@ const levels: Level[][] = [
                 }
             ],
             items: [],
+            enemies: []
         },
     ],
 ];

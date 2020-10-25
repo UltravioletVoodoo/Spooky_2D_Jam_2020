@@ -7,6 +7,8 @@ import Npc from '../Npc';
 import Levels from '~/Levels';
 import Item from '~/Item';
 import levels from '~/Levels';
+import Enemy from '~/Enemy';
+import MainMenuScene from './MainMenuScene';
 
 const TransitionTime = 800;
 
@@ -15,6 +17,7 @@ export default class LevelScene extends Phaser.Scene {
     private player!: Player;
     public npcs!: Npc[];
     public items!: Item[];
+    public enemies!: Enemy[];
 
     private dogTags!: Phaser.GameObjects.Image;
     private pocketWatch!: Phaser.GameObjects.Image;
@@ -61,6 +64,15 @@ export default class LevelScene extends Phaser.Scene {
             }
         }
 
+        this.enemies = [];
+        for (const enemyData of levelData.enemies) {
+            this.enemies.push(new Enemy(
+                this,
+                enemyData.x,
+                enemyData.y,
+            ));
+        }
+
         // Load player and collission
         this.player = new Player(this);
         collisionLayer.setDisplaySize(Config.scale.width, Config.scale.height);
@@ -77,6 +89,14 @@ export default class LevelScene extends Phaser.Scene {
                 item.sprite.destroy();
                 this.sound.play(Assets.pickupAudio);
             });
+        }
+
+        for (const enemy of this.enemies) {
+            this.physics.add.collider(this.player.sprite, enemy.sprite, () => {
+                this.player.sprite.setX(1050);
+                this.player.sprite.setX(525);
+                this.scene.start(MainMenuScene.name);
+            })
         }
 
         // Initial camera fade in
@@ -148,6 +168,10 @@ export default class LevelScene extends Phaser.Scene {
         this.player.update();
 
         const state = State.get();
+
+        for (let enemy of this.enemies) {
+            enemy.update()
+        }
 
         const items: Phaser.GameObjects.Image[] = [];
 
