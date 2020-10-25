@@ -3,9 +3,6 @@ import Config from './Config';
 import DebugScene from './scenes/DebugScene';
 import LevelScene from './scenes/LevelScene';
 import DialogueScene from './scenes/DialogueScene';
-import MainMenuScene from './scenes/MainMenuScene';
-import PauseMenuScene from './scenes/PauseMenuScene';
-import CreditsScene from './scenes/CreditsScene';
 import ControllerScene from './scenes/ControllerScene';
 import PostFxScene from './scenes/PostFxScene';
 
@@ -16,9 +13,6 @@ for (const scene of [
     LevelScene,
     DebugScene,
     DialogueScene,
-    MainMenuScene,
-    PauseMenuScene,
-    CreditsScene,
     PostFxScene,
 ]) {
     Game.scene.add(scene.name, scene);

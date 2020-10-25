@@ -3,6 +3,7 @@ import Config from '../Config';
 import Assets from '../Assets';
 import State from '../State';
 import Player from '../Player';
+import DialogueScene from './DialogueScene';
 
 const TransitionTime = 800;
 
@@ -25,7 +26,6 @@ export default class LevelScene extends Phaser.Scene {
         const tilemap = this.make.tilemap({ key: Assets.levels[0][0] });
         const tileset = tilemap.addTilesetImage('graveyardTileset', Assets.tiles);
         const collisionLayer = tilemap.createStaticLayer('Tile Layer 1', tileset);
-        console.log(collisionLayer);
         collisionLayer.setDisplaySize(Config.scale.width, Config.scale.height);
         collisionLayer.setCollisionByProperty({ collides: true });
         this.player = new Player(this);
@@ -36,6 +36,9 @@ export default class LevelScene extends Phaser.Scene {
         this.time.delayedCall(TransitionTime / 2, () => {
             state.inTransition = false;
         });
+
+        // Temporary
+        this.scene.launch(DialogueScene.name);
     }
 
     update() {

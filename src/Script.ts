@@ -1,3 +1,4 @@
+import Assets from './Assets';
 import State from './State';
 
 interface Script {
@@ -49,13 +50,13 @@ export default {
  
     testScene: [
         {
-            character: 'ghost',
+            character: Assets.alette,
             left: false,
-            text: 'Hello, wrodl!',
+            text: 'Hello, fellow ghost!',
             choices: ContinueDialogueChoices,
         },
         {
-            character: 'ghost',
+            character: Assets.gloom,
             left: true,
             text: 'Make your choice',
             choices: [
@@ -73,7 +74,7 @@ export default {
 
     yesChoice: [
         {
-            character: 'ghost',
+            character: Assets.aunt,
             left: false,
             text: 'You chose yes.',
             choices: ExitDialogueChoices,
@@ -82,7 +83,7 @@ export default {
 
     noChoice: [
         {
-            character: 'ghost',
+            character: Assets.aunt,
             left: false,
             text: 'You chose no',
             choices: ExitDialogueChoices,

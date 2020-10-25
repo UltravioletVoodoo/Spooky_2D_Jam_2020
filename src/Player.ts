@@ -4,15 +4,14 @@ import Config from './Config';
 import LevelScene from './scenes/LevelScene';
 import State from './State';
 
+const Scale = Config.scale.tile * 1.25 / 120;
 const Velocity = 250;
 const Acceleration = Infinity;
 const Drag = 0.8;
 const Animations = {
-    idle: 'player-idle000',
-    runUp: 'player-run-up000',
-    runDown: 'player-run-down000',
-    runLeft: 'player-run-left000',
-    runRight: 'player-run-right000',
+    down: 'alette-down000',
+    left: 'alette-left000',
+    up:   'alette-up000',
 };
 
 export default class Player {
@@ -28,10 +27,17 @@ export default class Player {
             state.player.y,
             Assets.player,
         );
+        this.sprite.setDisplaySize(
+            1.25 * Config.scale.tile,
+            1.25 * Config.scale.tile,
+        );
+        this.sprite.setSize(
+            0.5  * Config.scale.tile,
+            1.00 * Config.scale.tile,
+        );
         this.sprite.setDamping(true);
-        this.sprite.setDisplaySize(Config.scale.tile, Config.scale.tile);
         this.sprite.setDrag(Drag);
-        this.sprite.body.setSize(Config.scale.tile * 0.75, Config.scale.tile * 0.75);
+        console.log(this.sprite.body.offset);
 
         for (const name of Object.keys(Animations)) {
             scene.anims.create({
@@ -46,6 +52,7 @@ export default class Player {
                 repeat: -1,
             });
         }
+        this.sprite.play(Animations.down, true);
     }
 
     update() {
@@ -67,11 +74,23 @@ export default class Player {
         );
 
         // Animate player
-        if (directionVector.x > 0) { this.sprite.play(Animations.runRight, true); } else
-        if (directionVector.x < 0) { this.sprite.play(Animations.runLeft, true);  } else
-        if (directionVector.y > 0) { this.sprite.play(Animations.runDown, true);  } else
-        if (directionVector.y < 0) { this.sprite.play(Animations.runUp, true);    } else
-        { this.sprite.play(Animations.idle, true); }
+        if (directionVector.x > 0) { 
+            this.sprite.play(Animations.left, true); 
+            this.sprite.scaleX = -Scale;
+            this.sprite.body.offset.x = 80;
+        } else if (directionVector.x < 0) { 
+            this.sprite.play(Animations.left, true);
+            this.sprite.scaleX = Scale;
+            this.sprite.body.offset.x = 40;
+        } else if (directionVector.y > 0) { 
+            this.sprite.play(Animations.down, true);
+            this.sprite.scaleX = Scale;
+            this.sprite.body.offset.x = 40;
+        } else if (directionVector.y < 0) { 
+            this.sprite.play(Animations.up, true); 
+            this.sprite.scaleX = Scale;
+            this.sprite.body.offset.x = 40;
+        }
 
         // Handle transitions
         if (!state.inTransition) {

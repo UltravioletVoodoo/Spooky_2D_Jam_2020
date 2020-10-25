@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"player-idle0000.png": {
+		"alette-down0000.png": {
 			"frame": {
 				"x": 0,
 				"y": 0,
@@ -20,7 +20,7 @@
 				"h": 120
 			}
 		},
-		"player-idle0001.png": {
+		"alette-down0001.png": {
 			"frame": {
 				"x": 120,
 				"y": 0,
@@ -40,7 +40,7 @@
 				"h": 120
 			}
 		},
-		"player-idle0002.png": {
+		"alette-down0002.png": {
 			"frame": {
 				"x": 240,
 				"y": 0,
@@ -60,7 +60,7 @@
 				"h": 120
 			}
 		},
-		"player-idle0003.png": {
+		"alette-down0003.png": {
 			"frame": {
 				"x": 360,
 				"y": 0,
@@ -80,7 +80,7 @@
 				"h": 120
 			}
 		},
-		"player-run-down0000.png": {
+		"alette-down0004.png": {
 			"frame": {
 				"x": 0,
 				"y": 120,
@@ -100,7 +100,7 @@
 				"h": 120
 			}
 		},
-		"player-run-down0001.png": {
+		"alette-down0005.png": {
 			"frame": {
 				"x": 120,
 				"y": 120,
@@ -120,7 +120,7 @@
 				"h": 120
 			}
 		},
-		"player-run-down0002.png": {
+		"alette-left0000.png": {
 			"frame": {
 				"x": 240,
 				"y": 120,
@@ -140,7 +140,7 @@
 				"h": 120
 			}
 		},
-		"player-run-down0003.png": {
+		"alette-left0001.png": {
 			"frame": {
 				"x": 360,
 				"y": 120,
@@ -160,7 +160,7 @@
 				"h": 120
 			}
 		},
-		"player-run-left0000.png": {
+		"alette-left0002.png": {
 			"frame": {
 				"x": 0,
 				"y": 240,
@@ -180,7 +180,7 @@
 				"h": 120
 			}
 		},
-		"player-run-left0001.png": {
+		"alette-left0003.png": {
 			"frame": {
 				"x": 120,
 				"y": 240,
@@ -200,7 +200,7 @@
 				"h": 120
 			}
 		},
-		"player-run-left0002.png": {
+		"alette-left0004.png": {
 			"frame": {
 				"x": 240,
 				"y": 240,
@@ -220,7 +220,7 @@
 				"h": 120
 			}
 		},
-		"player-run-left0003.png": {
+		"alette-left0005.png": {
 			"frame": {
 				"x": 360,
 				"y": 240,
@@ -240,7 +240,7 @@
 				"h": 120
 			}
 		},
-		"player-run-right0000.png": {
+		"alette-up0000.png": {
 			"frame": {
 				"x": 0,
 				"y": 360,
@@ -260,7 +260,7 @@
 				"h": 120
 			}
 		},
-		"player-run-right0001.png": {
+		"alette-up0001.png": {
 			"frame": {
 				"x": 120,
 				"y": 360,
@@ -280,7 +280,7 @@
 				"h": 120
 			}
 		},
-		"player-run-right0002.png": {
+		"alette-up0002.png": {
 			"frame": {
 				"x": 240,
 				"y": 360,
@@ -300,7 +300,7 @@
 				"h": 120
 			}
 		},
-		"player-run-right0003.png": {
+		"alette-up0003.png": {
 			"frame": {
 				"x": 360,
 				"y": 360,
@@ -320,7 +320,7 @@
 				"h": 120
 			}
 		},
-		"player-run-up0000.png": {
+		"alette-up0004.png": {
 			"frame": {
 				"x": 480,
 				"y": 0,
@@ -340,50 +340,10 @@
 				"h": 120
 			}
 		},
-		"player-run-up0001.png": {
+		"alette-up0005.png": {
 			"frame": {
 				"x": 480,
 				"y": 120,
-				"w": 120,
-				"h": 120
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 120,
-				"h": 120
-			},
-			"sourceSize": {
-				"w": 120,
-				"h": 120
-			}
-		},
-		"player-run-up0002.png": {
-			"frame": {
-				"x": 480,
-				"y": 240,
-				"w": 120,
-				"h": 120
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 120,
-				"h": 120
-			},
-			"sourceSize": {
-				"w": 120,
-				"h": 120
-			}
-		},
-		"player-run-up0003.png": {
-			"frame": {
-				"x": 480,
-				"y": 360,
 				"w": 120,
 				"h": 120
 			},

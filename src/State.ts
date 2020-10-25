@@ -31,6 +31,12 @@ function createDfaultState(): State {
         back: false,
         direction: new Phaser.Math.Vector2(0, 0),
         inTransition: false,
+
+        /* temp */
+        dialogue: {
+            scriptKey: 'testScene',
+            index: 0,
+        },
     };
 }
 
