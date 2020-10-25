@@ -105,6 +105,7 @@ export default class Player {
                         scriptKey: npc.scriptKey,
                         index: 0,
                     };
+                    this.scene.scene.pause(LevelScene.name);
                     this.scene.scene.launch(DialogueScene.name);
                 }
 
