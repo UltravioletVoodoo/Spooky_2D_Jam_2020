@@ -30,12 +30,16 @@ export default {
     speechBubblesAtlas: 'visual/speechBubblesAtlas.json',
     dialogue: 'visual/dialogue.png',
     mainMenu: 'visual/mainMenu.png',
+    credits1: 'visual/credits1.png',
+    credits2: 'visual/credits2.png',
     tiles: 'visual/tiles.png',
     levels: [
         [ 'levels/00.json' ],
         [ 'levels/01.json' ],
     ],
     shader: 'shader.glsl',
+    menuAudio: 'audio/main_menu.mp3',
+    themeAudio: 'audio/main_theme.mp3',
 
     preload(scene: Phaser.Scene) {
         scene.load.image(this.alette, this.alette);
@@ -45,6 +49,8 @@ export default {
         scene.load.image(this.gloom, this.gloom);
         scene.load.image(this.dialogue, this.dialogue);
         scene.load.image(this.mainMenu, this.mainMenu);
+        scene.load.image(this.credits1, this.credits1);
+        scene.load.image(this.credits2, this.credits2);
         scene.load.atlas(this.auntSprite, this.auntSprite, this.auntSpriteAtlas);
         scene.load.atlas(this.grandpaSprite, this.grandpaSprite, this.grandpaSpriteAtlas);
         scene.load.atlas(this.sisterSprite, this.sisterSprite, this.sisterSpriteAtlas);
@@ -64,6 +70,8 @@ export default {
                 scene.load.tilemapTiledJSON(level, level);
             }
         }
+        scene.load.audio(this.menuAudio, this.menuAudio);
+        scene.load.audio(this.themeAudio, this.themeAudio);
     }
 
 };

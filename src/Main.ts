@@ -9,6 +9,7 @@ import ChoiceScene from './scenes/ChoiceScene';
 import InventoryScene from './scenes/InventoryScene';
 import MainMenuScene from './scenes/MainMenuScene';
 import QuoteScene from './scenes/QuoteScene';
+import CreditScene from './scenes/CreditScene';
 
 const Game = new Phaser.Game(Config);
 
@@ -22,6 +23,7 @@ for (const scene of [
     InventoryScene,
     MainMenuScene,
     QuoteScene,
+    CreditScene,
 ]) {
     Game.scene.add(scene.name, scene);
 }
