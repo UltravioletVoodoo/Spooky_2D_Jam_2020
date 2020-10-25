@@ -48,7 +48,6 @@ export default class ControllerScene extends Phaser.Scene {
         this.add.text(0, 0, 'load my font', { fontFamily: 'Caveat', color: 'black' });
 
         // Launch other scenes
-        this.scene.launch(LevelScene.name);
         this.scene.launch(PostFxScene.name);
         this.scene.launch(InventoryScene.name);
         if (Config.debug) {
