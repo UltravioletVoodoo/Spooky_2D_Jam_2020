@@ -6,7 +6,6 @@ import DialogueScene from './scenes/DialogueScene';
 import ControllerScene from './scenes/ControllerScene';
 import PostFxScene from './scenes/PostFxScene';
 import ChoiceScene from './scenes/ChoiceScene';
-import InventoryScene from './scenes/InventoryScene';
 import MainMenuScene from './scenes/MainMenuScene';
 import QuoteScene from './scenes/QuoteScene';
 import CreditScene from './scenes/CreditScene';
@@ -20,7 +19,6 @@ for (const scene of [
     DialogueScene,
     PostFxScene,
     ChoiceScene,
-    InventoryScene,
     MainMenuScene,
     QuoteScene,
     CreditScene,

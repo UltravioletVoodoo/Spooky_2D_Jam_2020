@@ -10,8 +10,6 @@ export default class Item {
 
     constructor(scene: LevelScene, x: number, y: number, itemKey: string, scriptKey?: string) {
 
-        console.log(itemKey)
-
         this.sprite = scene.physics.add.staticSprite(x, y, Assets[itemKey + 'Sprite']);
         this.itemKey = itemKey
 
@@ -20,12 +18,10 @@ export default class Item {
             Config.scale.tile,
         );
         this.sprite.setSize(
-            Config.scale.tile / 2,
-            Config.scale.tile / 2,
+            Config.scale.tile,
+            Config.scale.tile,
         );
-
-        this.sprite.setOffset(40);
-
+        this.sprite.setOffset(20);
         scene.anims.create({
             key: itemKey + 'Sprite',
             frames: scene.anims.generateFrameNames(Assets[itemKey + 'Sprite'], {

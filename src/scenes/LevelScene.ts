@@ -16,6 +16,11 @@ export default class LevelScene extends Phaser.Scene {
     public npcs!: Npc[];
     public items!: Item[];
 
+    private dogTags!: Phaser.GameObjects.Image;
+    private pocketWatch!: Phaser.GameObjects.Image;
+    private mothersCharm!: Phaser.GameObjects.Image;
+    private key!: Phaser.GameObjects.Image;
+
     constructor() {
         super(LevelScene.name);
     }
@@ -88,12 +93,49 @@ export default class LevelScene extends Phaser.Scene {
             });
         }
 
-        // temp
-        // this.scene.launch(DialogueScene.name);
+        this.pocketWatch = this.add.image(0, 60, Assets.pocketwatchIcon);
+        this.dogTags = this.add.image(0, 60, Assets.dogTagsIcon);
+        this.mothersCharm = this.add.image(0, 60, Assets.mothersCharmIcon);
+        this.key = this.add.image(0, 60, Assets.keyIcon);
+
+        this.dogTags.setVisible(false);
+        this.pocketWatch.setVisible(false);
+        this.mothersCharm.setVisible(false);
+        this.key.setVisible(false);
     }
 
     update() {
         this.player.update();
+
+        const state = State.get();
+
+        const items: Phaser.GameObjects.Image[] = [];
+
+        this.dogTags.setVisible(false);
+        this.pocketWatch.setVisible(false);
+        this.mothersCharm.setVisible(false);
+        this.key.setVisible(false);
+
+        if (state.items.dogtags) {
+            items.push(this.dogTags);
+            this.dogTags.setVisible(true); 
+        }
+        if (state.items.key) {
+            items.push(this.key);
+            this.key.setVisible(true);
+        }
+        if (state.items.mothersCharm) {
+            items.push(this.mothersCharm);
+            this.mothersCharm.setVisible(true);
+        }
+        if (state.items.pocketwatch) {
+            items.push(this.pocketWatch);
+            this.pocketWatch.setVisible(true);
+        }
+
+        items.forEach((item, i) => {
+            item.setX(Config.scale.width / 2 - (items.length * 120 / 2) + (i * 120) + 40);
+        });
     }
 
     transition(stateUpdate: () => void) {

@@ -16,7 +16,7 @@ export interface State {
     releasedUp: boolean,
     releasedDown: boolean,
     inTransition: boolean,
-    items: { dogtags: boolean, pocketwatch: boolean, locket: boolean, key: boolean };
+    items: { dogtags: boolean, pocketwatch: boolean, mothersCharm: boolean, key: boolean };
     dialogue?: {
         scriptKey: string,
         index: number,
@@ -38,7 +38,7 @@ function createDefaultState(): State {
         releasedDown: false,
         direction: new Phaser.Math.Vector2(0, 0),
         inTransition: false,
-        items: { dogtags: false, pocketwatch: false, locket: false, key: false },
+        items: { dogtags: false, pocketwatch: false, mothersCharm: false, key: true },
 
         /* temp */
         dialogue: {

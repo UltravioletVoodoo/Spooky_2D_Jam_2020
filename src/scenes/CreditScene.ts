@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 import Config from '../Config';
 import Assets from '~/Assets';
 import LevelScene from './LevelScene';
-import InventoryScene from './InventoryScene';
 import DialogueScene from './DialogueScene';
 import MainMenuScene from './MainMenuScene';
 
@@ -30,7 +29,6 @@ export default class CreditScene extends Phaser.Scene {
                             this.cameras.main.fadeOut(2000);
                             this.time.delayedCall(4000, () => {
                                 this.scene.stop(LevelScene.name);
-                                this.scene.stop(InventoryScene.name);
                                 this.scene.stop(DialogueScene.name);
                                 this.scene.start(MainMenuScene.name);
                             });

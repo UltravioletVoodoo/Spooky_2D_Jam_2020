@@ -4,7 +4,6 @@ import DebugScene from './DebugScene';
 import PostFxScene from './PostFxScene';
 import Config from '../Config';
 import State from '../State';
-import InventoryScene from './InventoryScene';
 import LevelScene from './LevelScene';
 import CreditScene from './CreditScene';
 
@@ -51,7 +50,6 @@ export default class ControllerScene extends Phaser.Scene {
 
         // Launch other scenes
         this.scene.launch(PostFxScene.name);
-        this.scene.launch(InventoryScene.name);
         if (Config.debug) {
             this.scene.launch(DebugScene.name);
         }

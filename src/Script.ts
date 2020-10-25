@@ -393,7 +393,7 @@ export default {
             text: 'Did you find her?',
             choices: () => {
                 const state = State.get();
-                if (state.items['locket']) {
+                if (state.items['mothersCharm']) {
                     return [
                         {
                             action: gotoAction('yesChoiceSister'),

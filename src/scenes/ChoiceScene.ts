@@ -42,7 +42,7 @@ export default class ChoiceScene extends Phaser.Scene {
         choices.forEach((choice, i) => {
             const text = this.add.text(
                 Config.scale.width / 2, 
-                Config.scale.height / 2 - (choices.length * 48) + (i * 48),
+                Config.scale.height / 2 - (choices.length / 2 * 48) + (i * 48),
                 fixText(choice.text), 
                 {
                     fontFamily: 'Caveat',
