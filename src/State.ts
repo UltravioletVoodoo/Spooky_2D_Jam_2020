@@ -16,6 +16,7 @@ export interface State {
     releasedUp: boolean,
     releasedDown: boolean,
     inTransition: boolean,
+    items: { dogtags: false, pocketwatch: false, locket: false, keys: false };
     dialogue?: {
         scriptKey: string,
         index: number,
@@ -37,6 +38,7 @@ function createDefaultState(): State {
         releasedDown: false,
         direction: new Phaser.Math.Vector2(0, 0),
         inTransition: false,
+        items: { dogtags: false, pocketwatch: false, locket: false, keys: false },
 
         /* temp */
         dialogue: {
@@ -66,7 +68,7 @@ class StateManager {
             this.state = JSON.parse(jsonState);
         }
     }
-    
+
     save() {
         localStorage.setItem(StateKey, JSON.stringify(this.state));
     }
