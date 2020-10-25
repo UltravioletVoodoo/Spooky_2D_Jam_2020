@@ -15,7 +15,7 @@ export default [
                     x: 200,
                     y: 200,
                     name: 'aunt',
-                    scriptKey: 'testScene',
+                    scriptKey: 'meetAunt',
                 }
             ],
         }
@@ -27,13 +27,13 @@ export default [
                     x: 1000,
                     y: 500,
                     name: 'grandpa',
-                    scriptKey: 'testScene',
+                    scriptKey: 'meetGrandpa',
                 },
                 {
                     x: 800,
                     y: 550,
                     name: 'sister',
-                    scriptKey: 'testScene',
+                    scriptKey: 'meetSister',
                 },
             ]
         },
