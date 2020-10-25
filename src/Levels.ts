@@ -58,6 +58,12 @@ const levels: Level[][] = [
                     name: 'aunt',
                     scriptKey: 'meetAunt',
 
+                },
+                {
+                    x: 700,
+                    y: 620,
+                    name: 'gloom',
+                    scriptKey: 'meetGloom'
                 }
             ],
             items: [],
@@ -77,10 +83,17 @@ const levels: Level[][] = [
         {// 12
             npcs: [
                 {
-                    x: 500,
+                    //x: 500,
+                    x: 750,
                     y: 185,
                     name: 'grandpa',
                     scriptKey: 'meetGrandpa',
+                },
+                {
+                    x: 140,
+                    y: 500,
+                    name: 'gloom',
+                    scriptKey: 'returnToGloom'
                 }
             ],
             items: [],
@@ -114,7 +127,14 @@ const levels: Level[][] = [
             items: [],
         },
         {// 23
-            npcs: [],
+            npcs: [
+                {
+                    x: 950,
+                    y: 340,
+                    name: 'gloom',
+                    scriptKey: 'leaveGloom'
+                }
+            ],
             items: [],
         },
     ],
