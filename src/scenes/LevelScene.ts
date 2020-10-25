@@ -78,6 +78,16 @@ export default class LevelScene extends Phaser.Scene {
             state.inTransition = false;
         });
 
+        // Start main audio
+        let menuSound = this.sound.get(Assets.menuAudio);
+        if (menuSound.isPlaying) {
+            this.sound.stopAll();
+            this.sound.play(Assets.themeAudio, {
+                volume: 0.5,
+                loop: true,
+            });
+        }
+
         // temp
         // this.scene.launch(DialogueScene.name);
     }

@@ -20,6 +20,10 @@ export default class MainMenuScene extends Phaser.Scene {
 
     create() {
         this.add.image(Config.scale.width / 2, Config.scale.height / 2, Assets.mainMenu);
+        this.sound.play(Assets.menuAudio, {
+            volume: 0.5,
+            loop: true,
+        });
         this.startTextShadow = this.add.text(
             Config.scale.width / 2, 
             Config.scale.height * 0.45,

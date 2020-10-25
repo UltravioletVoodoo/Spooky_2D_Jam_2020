@@ -31,6 +31,8 @@ export default {
         [ 'levels/01.json' ],
     ],
     shader: 'shader.glsl',
+    menuAudio: 'audio/main_menu.mp3',
+    themeAudio: 'audio/main_theme.mp3',
 
     preload(scene: Phaser.Scene) {
         scene.load.image(this.alette, this.alette);
@@ -56,6 +58,8 @@ export default {
                 scene.load.tilemapTiledJSON(level, level);
             }
         }
+        scene.load.audio(this.menuAudio, this.menuAudio);
+        scene.load.audio(this.themeAudio, this.themeAudio);
     }
 
 };
