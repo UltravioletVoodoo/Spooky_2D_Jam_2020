@@ -8,7 +8,7 @@ export default {
     grandpa: 'visual/grandpa.png',
     grandpaSprite: 'visual/grandpaSprite.png',
     grandpaSpriteAtlas: 'visual/grandpaSpriteAtlas.json',
-    sister: 'visual/siter.png',
+    sister: 'visual/sister.png',
     sisterSprite: 'visual/sisterSprite.png',
     sisterSpriteAtlas: 'visual/sisterSpriteAtlas.json',
     gloom: 'visual/gloom.png',
