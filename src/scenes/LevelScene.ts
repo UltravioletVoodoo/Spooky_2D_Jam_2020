@@ -5,6 +5,8 @@ import State from '../State';
 import Player from '../Player';
 import Npc from '../Npc';
 import Levels from '~/Levels';
+import Item from '~/Item';
+import levels from '~/Levels';
 
 const TransitionTime = 800;
 
@@ -12,6 +14,7 @@ export default class LevelScene extends Phaser.Scene {
 
     private player!: Player;
     public npcs!: Npc[];
+    public items!: Item[];
 
     constructor() {
         super(LevelScene.name);
@@ -40,6 +43,16 @@ export default class LevelScene extends Phaser.Scene {
             ));
         }
 
+        this.items = [];
+        for (const itemData of levelData.items) {
+            this.items.push(new Item(
+                this,
+                itemData.x,
+                itemData.y,
+                itemData.itemKey
+            ));
+        }
+
         // Load player and collission
         this.player = new Player(this);
         collisionLayer.setDisplaySize(Config.scale.width, Config.scale.height);
@@ -48,6 +61,13 @@ export default class LevelScene extends Phaser.Scene {
 
         for (const npc of this.npcs) {
             this.physics.add.collider(this.player.sprite, npc.sprite);
+        }
+
+        for (const item of this.items) {
+            this.physics.add.collider(this.player.sprite, item.sprite, (a, b) => {
+                state.items[item.itemKey] = true;
+                item.sprite.destroy();
+            });
         }
 
         // Initial camera fade in

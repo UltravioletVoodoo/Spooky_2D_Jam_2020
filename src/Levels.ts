@@ -5,9 +5,15 @@ interface Level {
         name: string,
         scriptKey: string,
     }[],
+    items: {
+        x: number,
+        y: number,
+        itemKey: string,
+        scriptKey?: string,
+    }[],
 }
 
-export default [
+const levels: Level[][] = [
     [
         /* 0 0 */ {
             npcs: [
@@ -16,6 +22,13 @@ export default [
                     y: 200,
                     name: 'aunt',
                     scriptKey: 'testScene',
+                }
+            ],
+            items: [
+                {
+                    x: 300,
+                    y: 200,
+                    itemKey: 'dogtags'
                 }
             ],
         }
@@ -35,8 +48,13 @@ export default [
                     name: 'sister',
                     scriptKey: 'testScene',
                 },
-            ]
+            ],
+            items: [],
         },
     ],
 ];
+
+export default levels;
+
+
 

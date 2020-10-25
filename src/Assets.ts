@@ -14,6 +14,9 @@ export default {
     gloom: 'visual/gloom.png',
     gloomSprite: 'visual/gloomSprite.png',
     gloomSpriteAtlas: 'visual/gloomSpriteAtlas.json',
+    dogtagsSprite: 'visual/dogTagsSprite.png',
+    dogTagsAtlas: 'visual/dogTagsAtlas.json',
+    dogTagsIcon: 'visual/dogTagsIcon.png',
     player: 'visual/player.png',
     playerAtlas: 'visual/playerAtlas.json',
     speechBubbles: 'visual/speechBubbles.png',
@@ -37,6 +40,8 @@ export default {
         scene.load.atlas(this.grandpaSprite, this.grandpaSprite, this.grandpaSpriteAtlas);
         scene.load.atlas(this.sisterSprite, this.sisterSprite, this.sisterSpriteAtlas);
         scene.load.atlas(this.gloomSprite, this.gloomSprite, this.gloomSpriteAtlas);
+        scene.load.atlas(this.dogtagsSprite, this.dogtagsSprite, this.dogTagsAtlas);
+        scene.load.image(this.dogTagsIcon, this.dogTagsIcon);
         scene.load.atlas(this.player, this.player, this.playerAtlas);
         scene.load.atlas(this.speechBubbles, this.speechBubbles, this.speechBubblesAtlas);
         scene.load.image(this.tiles, this.tiles);

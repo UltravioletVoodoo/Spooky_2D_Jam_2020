@@ -6,6 +6,7 @@ import DialogueScene from './scenes/DialogueScene';
 import ControllerScene from './scenes/ControllerScene';
 import PostFxScene from './scenes/PostFxScene';
 import ChoiceScene from './scenes/ChoiceScene';
+import InventoryScene from './scenes/InventoryScene';
 
 const Game = new Phaser.Game(Config);
 
@@ -16,6 +17,7 @@ for (const scene of [
     DialogueScene,
     PostFxScene,
     ChoiceScene,
+    InventoryScene,
 ]) {
     Game.scene.add(scene.name, scene);
 }
