@@ -2,6 +2,10 @@ import Phaser from 'phaser';
 import Config from '../Config';
 import Assets from '~/Assets';
 
+function fixText(text) {
+    return text.replace(/(\n|$)/g, '    $1');
+}
+
 export default class QuoteScene extends Phaser.Scene {
 
     constructor() {
@@ -16,7 +20,7 @@ export default class QuoteScene extends Phaser.Scene {
         const text = this.add.text(
             Config.scale.width / 2, 
             Config.scale.height * 0.45,
-            '    ' + data.quote + '    ',
+            fixText(data.quote),
             {
                 fontFamily: 'Caveat',
                 fontSize: 48,

@@ -27,6 +27,7 @@ export interface State {
 
 function createDefaultState(): State {
     return {
+        // level: { x: 0, y: 1 },
         level: { x: 0, y: 1 },
         player: { x: 1050, y: 525 },
         up: false,

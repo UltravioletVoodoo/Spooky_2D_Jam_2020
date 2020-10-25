@@ -1,8 +1,10 @@
 import Phaser from 'phaser';
 import Assets from './Assets';
 import Config from './Config';
+import CreditScene from './scenes/CreditScene';
 import DialogueScene from './scenes/DialogueScene';
 import LevelScene from './scenes/LevelScene';
+import QuoteScene from './scenes/QuoteScene';
 import State from './State';
 
 const Scale = Config.scale.tile * 1.25 / 120;
@@ -67,6 +69,65 @@ export default class Player {
                 actualVelocity * Math.abs(directionVector.x),
                 actualVelocity * Math.abs(directionVector.y),
             );
+        }
+
+        if (state.level.x == 2 && state.level.y == 3 && this.sprite.x > 900) {
+            this.scene.scene.start(QuoteScene.name, {
+                delay: 8000,
+                quote: [
+                    `Alette, having escaped the clutches of the graveyard,`,
+                    ` finally returned home. What she found was shocking!`,
+                    `  Her family was not as she left them; her children`,
+                    `   were grown and had children of their own.`,
+                ].join('\n'),
+                callback: (scene: Phaser.Scene) => {
+                    scene.scene.start(QuoteScene.name, {
+                        delay: 8000,
+                        quote: [
+                            `      She turns around to find The Gloom,`,
+                            `who suddenly looks familiar. He was her husband,`,
+                            `    the last person to visit her grave,`,
+                            `     before moving into a grave himself.`
+                        ].join('\n'),
+                        callback: (scene: Phaser.Scene) => {
+                            scene.scene.start(QuoteScene.name, {
+                                delay: 8000,
+                                quote: [
+                                    `    The Gloom believed that as long as he`,
+                                    `    could keep people in the graveyard,`,
+                                    `they wouldn’t move on and leave him there alone.`,
+                                    `            Alette tells the gloom`,
+                                ].join('\n'),
+                                callback: (scene: Phaser.Scene) => {
+                                    scene.scene.start(QuoteScene.name, {
+                                        delay: 2000,
+                                        quote: [
+                                            `"It's time to move on"`
+                                        ].join('\n'),
+                                        callback: (scene: Phaser.Scene) => {
+                                            scene.scene.start(QuoteScene.name, {
+                                                delay: 2000,
+                                                quote: [
+                                                    `And that's what they did.`
+                                                ].join('\n'),
+                                                callback: (scene: Phaser.Scene) => {
+                                                    scene.scene.start(CreditScene.name);
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                },
+            });
+            /*
+            Alette, having escaped the clutches of the graveyard, finally returned home. What she found was shocking. Her family was not as she left them; her children were grown and had children of their own.
+She turns around to find The Gloom, who suddenly looks familiar. He was her husband, the last person to keep visiting her grave before he died himself. The Gloom believed that as long as he could keep people in the graveyard, they wouldn’t move on and leave him there alone.
+Alette convinces The Gloom that it is their time, and they finally, truly, pass on.
+*/
+
         }
 
         // Accelerate in the correct directions
