@@ -4,7 +4,7 @@ import Config from '../Config';
 
 import { Choice } from '../Script';
 
-function fixText(text) {
+function fixText(text?:string) {
     return '    ' + text + '    ';
 }
 

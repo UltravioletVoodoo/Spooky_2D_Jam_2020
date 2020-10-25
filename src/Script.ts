@@ -159,20 +159,21 @@ export default {
             text: 'Did you find him?',
             choices: () => {
                 const state = State.get();
-                if (state.dialogue) {
-                    state.dialogue = undefined;
+                if (state.items['dogtags']) {
+                    return [
+                        {
+                            action: gotoAction('yesChoiceAunt'),
+                            text: 'yes',
+                        },
+                        {
+                            action: gotoAction('noChoiceAunt'),
+                            text: 'no',
+                        }
+                    ];
                 }
-                return [
-                    {
-                        action: gotoAction('yesChoiceAunt'),
-                        text: 'yes',
-                    },
-                    {
-                        action: gotoAction('noChoiceAunt'),
-                        text: 'no',
-                    }
-                    // also, if player does not have dogtags, ExitDialogueChoices
-                ]
+                else {
+                    return ExitDialogueChoices;
+                }
             },
         },
     ],
